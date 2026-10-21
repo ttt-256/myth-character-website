@@ -1,0 +1,19 @@
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+
+# 日志与临时文件
+*.log
+.tmp/
+__*.html
+
+# 依赖（本项目零依赖，留作保险）
+node_modules/
+
+# 服务端运行时数据：账号库与签名密钥，绝不入库
+data/
+*.tmp

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夸父｜上古纪事</title>
+
+    <!-- 登录门禁：未登录则先跳转 login.html -->
+    <script src="js/auth.js"></script>
+    <script>if (window.MythoAuth) { window.MythoAuth.require(); }</script>
+
+    <link rel="stylesheet" href="css/tale.css">
+</head>
+<body class="bg-kuafu" data-char="kuafu" data-story="kuafu">
+
+<button class="back" onclick="taleGoBack()">← 返回人物馆</button>
+
+<div class="avatar-box">
+    <img src="assets/avatars/kuafu.jpg" alt="夸父头像" data-fallback="assets/avatar-kuafu.svg">
+</div>
+<div class="upload-area">
+    <label for="avatarUpload">更换头像</label>
+    <input type="file" id="avatarUpload" accept="image/*">
+</div>
+
+<h1>夸父</h1>
+<p class="char-subtitle">逐日巨人 · 志在光明</p>
+<p class="skip-tip">点击页面任意处可跳过逐字动画</p>
+<div class="box" id="storyBox"></div>
+
+<!-- 读完后的交互弹窗 -->
+<div class="mask" id="mask"></div>
+<div class="dialog" id="dialog">
+    <p>故事已读完，你想？</p>
+    <button onclick="taleGoBack()">返回人物馆</button>
+    <button onclick="restartStory()">重读故事</button>
+    <button class="ghost" id="talkBtn">进入人物对话</button>
+</div>
+
+<script src="js/tales.js"></script>
+<script src="js/tale.js"></script>
+</body>
+</html>

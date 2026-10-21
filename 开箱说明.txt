@@ -1,0 +1,86 @@
+「上古纪事」神话人物志 · 桌面副本
+================================================================
+
+更新时间：2026-10-21（登录已升级为服务端会话）
+来源目录：C:\Users\datan\WorkBuddy\2026-10-15-13-58-24\mythology-site
+
+重要变化：登录不再是「浏览器里存账号」，而是真实的服务端鉴权。
+直接双击 login.html 只能看到页面，**登录需要先启动服务**（见下）。
+
+
+一、怎么打开
+----------------------------------------------------------------
+【必须先启动服务】在本文件夹里打开命令行（地址栏输入 cmd 回车），运行：
+
+    node server.js
+
+看到「上古纪事已启动」后，浏览器访问：
+
+    http://127.0.0.1:3000/login.html
+
+首次使用先点「注册」建账号（用户名 2-24 位，密码至少 6 位）。
+账号保存在本文件夹的 data\users.json 里，密码是加密存储的。
+
+需要 Node.js 18 或更高版本；不需要安装任何依赖包。
+想换端口：node server.js 之前设置环境变量 PORT，例如
+    set PORT=8080 && node server.js
+
+【只看不登录】直接双击 index.html 也会被弹回登录页，这是设计行为——
+没有服务端就没有会话，页面会提示「未连接登录服务」。
+
+
+二、站点流程
+----------------------------------------------------------------
+login.html（登录/注册）
+  → index.html（首页：开始探索 / 关于本志 / 退出）
+    → characters.html（人物馆：六张卡片）
+      → nezha / wukong / yangjian / change / kuafu / jingwei.html（人物故事页，逐字浮现）
+        → story.html（人物对话页，逐字打字机 + 语音朗读）
+
+
+三、目录结构
+----------------------------------------------------------------
+├── server.js           登录服务（零依赖 Node）
+├── package.json        npm start 也可启动
+├── login.html          登录 / 注册（入口）
+├── index.html          首页
+├── characters.html     人物馆
+├── nezha.html 等 6 个  人物故事页
+├── story.html          人物对话页
+├── css/                style.css  login.css  characters.css  tale.css
+├── js/                 auth.js  login.js  passkey.js  bg.js  index.js
+│                       characters.js  story.js  select.js  tales.js  tale.js
+├── assets/             6 个 SVG 占位头像 + avatars/（140px 头像目录）
+├── README.md           项目说明（含接口与安全设计）
+└── 导出物/             见下
+
+
+四、导出物 文件夹里是什么
+----------------------------------------------------------------
+HTML代码清单.html    全部 10 个 HTML 源码，浏览器里可翻阅、可一键复制
+HTML代码清单.md      同上，Markdown 版，代码块可整段拷走
+                     ★ 注意：清单是 10-21 上午的快照，之后的登录升级
+                       （server.js 等）未包含在内
+推送到Git-说明.txt   三种推到 GitHub / Gitee 的方式
+push-to-git.bat      双击后粘贴仓库地址即自动推送
+mythology-site.bundle 完整 Git 仓库包（含提交历史），git clone 可还原
+mythology-site.zip   纯源码压缩包（不含 .git）
+
+
+五、几点说明
+----------------------------------------------------------------
+1. 换头像：把图片放进 assets/avatars/，命名为
+   nezha.jpg / wukong.jpg / yangjian.jpg / change.jpg / kuafu.jpg / jingwei.jpg
+   刷新即生效，不用改代码。故事页里也有「更换头像」按钮，但那只存在本机浏览器。
+
+2. 改故事文字：改 js/tales.js（六位人物的全文都在这里）。
+   改台词：改 js/characters.js。
+
+3. 改人物主题色：css/tale.css 里对应 body.bg-xxx 的几个变量。
+
+4. 登录安全：密码用 scrypt 加盐哈希存在 data\users.json，浏览器里不再存密码；
+   会话是 HttpOnly 签名 Cookie，7 天有效。同一 IP 连续输错 8 次密码会被
+   锁 5 分钟。data\ 文件夹里是账号和密钥，别提交到公开仓库（.gitignore 已排除）。
+
+5. 想恢复到「不需要服务、双击就能逛」的旧版？git 历史里都有：
+   git log 找 254e9f2（通行密钥版）或 4529c5b（最初版）。

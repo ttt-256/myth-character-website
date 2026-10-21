@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="XIttvLLeeol3d27EzsSSJL"><head data-page-node-id="jr9zywonEK37ckK3nFtAWz">
+    <meta charset="UTF-8" data-page-node-id="H3mhBuLvo44zFQIg0L2uZB">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="jyqPl0C2OXOHU45E26TKVk">
+    <title data-page-node-id="0DHqFBdow0VUvQN3ozvUG4">人物对话｜上古纪事</title>
+    <link rel="stylesheet" href="css/style.css" data-page-node-id="Olx9g41Nou6sHQ11TmIA26">
+
+    <!-- 登录门禁：未登录则先跳转 login.html -->
+    <script src="js/auth.js"></script>
+    <script>if (window.MythoAuth) { window.MythoAuth.require(); }</script>
+
+<style id="__dm_no_drag_style__">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style></head>
+<body data-page-node-id="JeuvrnaJE0eTZOgghGK1IK" style="">
+
+    <canvas id="bgCanvas" width="723" height="842" style="width: 579px; height: 674px;" data-page-node-id="cAbp0wYpNL6mYgbQuQGjaj"></canvas>
+
+    <div class="page" data-page-node-id="XYuiacmgY41sTG8qgiuGHn">
+
+        <!-- 顶栏 -->
+        <header class="topbar" data-page-node-id="ODuCUGWBBD8vukzaJYg8Fs">
+            <a class="back-link" href="characters.html" data-page-node-id="saTEMDBmISEn61XwF3xb29">← 人物选择</a>
+            <span class="topbar-title" data-page-node-id="TorJUTIZpvUBKonNooyddP" style="white-space: pre-wrap;">上古纪事</span>
+            <span class="topbar-spacer" data-page-node-id="zSKhbFV5aqAr2ZdLMADcIv"></span>
+            <button class="voice-toggle" id="speedBtn" type="button" title="切换朗读语速" data-page-node-id="rT0TGZVTB9OzPbeH9xqAsU">语速 · 中</button>
+            <button class="voice-toggle on" id="voiceBtn" type="button" title="语音朗读开关" data-page-node-id="InIFytkpYGDfORJJCLtEVC">
+                <span class="ico" data-page-node-id="NT2lDGWE8a7Ymx6tpihrNp">🔊</span><span class="label" data-page-node-id="Jz7HafiBpUFIHG2xXBJXdO">语音朗读 · 开</span>
+            </button>
+        </header>
+
+        <main class="story-layout" data-page-node-id="dYgCFGFEVACalPcvq9Pf5z">
+
+            <!-- 左：人物名录 -->
+            <aside class="roster" id="roster" aria-label="人物名录" data-page-node-id="4GQTszkbVLMCgKSqTKNgjE"><div class="roster-head" data-page-node-id="rCbz6WEQ3RViwHf5XrHYs2">人 物 名 录</div><button class="roster-card active" type="button" data-index="0" data-page-node-id="ntBiXAVZH5R9HKDz9BIUqn"><img src="assets/avatar-nezha.svg" alt="哪吒" data-page-node-id="kNZlvwbFiGQRQFT6EsIoRF"><span class="roster-meta" data-page-node-id="NbFDDeX93TbvRVcPJ7rSIo"><span class="roster-name" data-page-node-id="mQnsiESdWD9Q7eVAAnYcZF">哪吒</span><span class="roster-title" data-page-node-id="eT7iPzyPmJ8bB33yvv7id3">三坛海会大神</span></span></button><button class="roster-card" type="button" data-index="1" data-page-node-id="d3mBEN0pA0GSJUbeJaKFby"><img src="assets/avatar-wukong.svg" alt="孙悟空" data-page-node-id="0im81vk6e4ijESrc7kgOcM"><span class="roster-meta" data-page-node-id="OYE4ptK7qDtKTWTeGCRrtc"><span class="roster-name" data-page-node-id="Mim7VE4eoBcCfyCkhGJ2gn">孙悟空</span><span class="roster-title" data-page-node-id="tKvGKWNg1qUn0f3aL1LY7H">齐天大圣</span></span></button><button class="roster-card" type="button" data-index="2" data-page-node-id="L4V98QcxoO19cTQlD3VXeS"><img src="assets/avatar-erlang.svg" alt="二郎神" data-page-node-id="lqy5Q7rxDLDMipPrwKwbkT"><span class="roster-meta" data-page-node-id="hrf5YFYIQTWIvhhxwUWVLB"><span class="roster-name" data-page-node-id="ngMNrwZzMz0Bc6Ij0cSXdf">二郎神</span><span class="roster-title" data-page-node-id="wm74rP5vaQQkCSau9xLlwg">清源妙道真君</span></span></button><button class="roster-card" type="button" data-index="3" data-page-node-id="Dj7qf7nNq0FwNXOvvhHf68"><img src="assets/avatar-change.svg" alt="嫦娥" data-page-node-id="AxY14QeHSjwCKA5lfMrL2S"><span class="roster-meta" data-page-node-id="YuqgG2G52AUybZoI9d3Z5s"><span class="roster-name" data-page-node-id="08Ywytsl2ikxUWbzDfb3Fn">嫦娥</span><span class="roster-title" data-page-node-id="RZRxslsPXdRoKP7jKftbmG">月宫仙子</span></span></button><button class="roster-card" type="button" data-index="4" data-page-node-id="EnxzLtAKo6VYgFQAcCOAIV"><img src="assets/avatar-kuafu.svg" alt="夸父" data-page-node-id="APiDwVhllZixIo7ApG7CA9"><span class="roster-meta" data-page-node-id="pIGY0GXd0HqjXb5cGYVvMJ"><span class="roster-name" data-page-node-id="NQ9TEL7MvvSFRzW00pUHRe">夸父</span><span class="roster-title" data-page-node-id="x641NK1wmNNuQmty3KqCJG">逐日者</span></span></button><button class="roster-card" type="button" data-index="5" data-page-node-id="fISaZ0JCWJScrHH9y8mx2W"><img src="assets/avatar-jingwei.svg" alt="精卫" data-page-node-id="hyyQmsRL39GJ3L18GcpAZd"><span class="roster-meta" data-page-node-id="xvbrSdE3nabDvotJGAOmoO"><span class="roster-name" data-page-node-id="luolSi9me6tNXjsv00haM9">精卫</span><span class="roster-title" data-page-node-id="MGSnfjEtsy7DsxsRhqDl9e">炎帝之女</span></span></button></aside>
+
+            <!-- 右：对话舞台 -->
+            <section class="stage" data-page-node-id="3wscdET2Bi9B254AWmchQ3">
+
+                <div class="stage-top" data-page-node-id="8ANyvafd4FU3AG8FWUpvjb">
+                    <div class="avatar-wrap" style="--char-color: #ff8a5c; filter: drop-shadow(rgba(255, 138, 92, 0.42) 0px 0px 22px);" data-page-node-id="AztluezF6fDYE9Lds86Avl">
+                        <img id="stageAvatar" src="assets/avatar-nezha.svg" alt="哪吒" style="" data-page-node-id="VdIZDWYUQEKX9GbOgUBllO">
+                    </div>
+                    <div class="stage-id" data-page-node-id="1eAznTRnYUYksQXFeIyBlD">
+                        <h1 class="stage-name" id="stageName" data-page-node-id="TQXakIdMFeEiVCesMvuBjH">哪吒</h1>
+                        <p class="stage-title" id="stageTitle" data-page-node-id="VE3lDg7tkX8eGWx6UuPMHD">三坛海会大神</p>
+                        <div class="tag-row" id="tagRow" data-page-node-id="DbW3IUg81IKEeJPPaHWqyo"><span class="tag" data-page-node-id="CkWcd9lsR1rFflauzsJtPc">莲花重生</span><span class="tag" data-page-node-id="h7r0jEgFAlAnDFtogKx7PD">火尖枪</span><span class="tag" data-page-node-id="DUggDKfzVNHcAVGnPVrwOF">乾坤圈</span><span class="tag" data-page-node-id="zYIS4iuTFH7Hb0xwYghYh1">混天绫</span></div>
+                    </div>
+                </div>
+
+                <p class="stage-intro" id="stageIntro" data-page-node-id="wapUIzQj5ZimFYGvHkImjd">灵珠子转世，莲花化身。削肉还母、剔骨还父，而后以藕为骨、以荷为肉，重生于火中。</p>
+
+                <div class="bubble" data-page-node-id="phFIRFYZP4ktqfCJMeicKT">
+                    <div class="bubble-text" id="bubbleText" data-page-node-id="53P42ZPoFceHqzbGCsCdTp">莲花为身，藕为骨。我从火里生，也从火里长。</div>
+                    <div class="bubble-note" id="bubbleNote" data-page-node-id="ESpuF7ZRxfuVX4iwolTsfF">—— 太乙真人以莲藕重塑其身</div>
+                </div>
+
+                <div class="controls" data-page-node-id="x7iCel3USXs5ffQZpY1Ozb">
+                    <button class="ctrl-btn" id="prevBtn" type="button" data-page-node-id="rdIE98k2JZV05tAi1Q0TqU">
+                        <span class="ico" data-page-node-id="YYQOgJBtIcqNJSYbbidi21">←</span><span class="label" data-page-node-id="qer9jt355MyRyTQXOhavu7">上一句</span>
+                    </button>
+                    <button class="ctrl-btn accent" id="nextBtn" type="button" data-page-node-id="h084CCCZvE4IDbKsSFVEKO">下一句 →</button>
+                    <button class="ctrl-btn" id="replayBtn" type="button" data-page-node-id="ZXCGQ0eXYGwrFqrc1gDrBs">
+                        <span class="ico" data-page-node-id="zyvkVKe6U6e2UHYZUiKLzu">↻</span><span class="label" data-page-node-id="9K7BMh5cI3TazJ83rDgvKH">重播</span>
+                    </button>
+                    <button class="ctrl-btn" id="autoBtn" type="button" data-page-node-id="yrcEFUPOZ2jKP1rvV6hg7P">
+                        <span class="ico" data-page-node-id="lra21sTa8LFymgptInfued">▶</span><span class="label" data-page-node-id="qtggAyv5qOdELwyP7KiMfg">自动连播</span>
+                    </button>
+                    <div class="progress" id="progress" data-page-node-id="n8JEiD7OwmhaMPdpbTCVXd"><button class="dot" type="button" title="第 1 句" data-page-node-id="UcyE3Thok1V51QM9yWaWrN"></button><button class="dot active" type="button" title="第 2 句" data-page-node-id="MFIkqIb60r5OrtkPTnYKgY"></button><button class="dot" type="button" title="第 3 句" data-page-node-id="Wq9n6s1nZRVbrUImVExfBx"></button><button class="dot" type="button" title="第 4 句" data-page-node-id="Rzt0RefIpTZlGsfGfa8ZQC"></button><button class="dot" type="button" title="第 5 句" data-page-node-id="deGinOg3DvYawO1b9f8B11"></button><span class="count" data-page-node-id="yZs5JW5Y5VMfGIymGEHbT2">2 / 5</span></div>
+                </div>
+
+                <p class="key-hint" data-page-node-id="OGpIz7OiTu1qnEJIvN2Jo7">
+                    快捷键：<kbd data-page-node-id="BXpE4EImBTR1nkPLXEp6WI">←</kbd><kbd data-page-node-id="mSWfJqf89TMC2obDdh7lF6">→</kbd> 翻页 · <kbd data-page-node-id="Z1lU15XskQBvPjXw7xfqzN">空格</kbd> 下一句 · <kbd data-page-node-id="QxlALcwg9xcK82hPLcvKOU">R</kbd> 重播
+                </p>
+
+                <p class="voice-tip hide" id="voiceTip" data-page-node-id="lXO1L6d2QbCUXsTGkXJZnC">🔊 若暂时没有声音，点击页面任意处即可开启语音朗读</p>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="js/bg.js" data-page-node-id="FBFaVCgPAg4NjMJLwWw2AU"></script>
+    <script src="js/characters.js" data-page-node-id="Usw6GDZy1BmPsIHvNtAJ7p"></script>
+    <script src="js/story.js" data-page-node-id="8xPTFOJTaeBrcHsMGU1BQ4"></script>
+
+
+
+</body></html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上古纪事｜神话人物故事集</title>
+    <meta name="description" content="上古纪事 · 神话人物故事集 —— 一卷神话，六位传奇。走进哪吒、孙悟空、杨戬、嫦娥、夸父、精卫的故事。">
+
+    <!-- 登录门禁：未登录则先跳转 login.html -->
+    <script src="js/auth.js"></script>
+    <script>if (window.MythoAuth) { window.MythoAuth.require(); }</script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <main class="page home">
+
+        <!-- 朱砂印章（装饰） -->
+        <div class="seal" aria-hidden="true">神话<br>人物志</div>
+
+        <p class="eyebrow">上古纪事<br>神魔流章</p>
+        <h1 class="main-title">神话人物故事集</h1>
+        <p class="subtitle">一卷神话 · 书写传奇</p>
+
+        <div class="divider" aria-hidden="true">
+            <i></i><span>❖</span><i></i>
+        </div>
+
+        <div class="button-group">
+            <button class="game-button" id="startBtn" type="button">开始探索</button>
+            <button class="game-button ghost" id="aboutBtn" type="button">关于本志</button>
+            <button class="game-button quiet" id="exitBtn" type="button">退出</button>
+        </div>
+
+        <!-- 六位人物剪影，点击直达 -->
+        <div class="roster-strip" aria-label="人物快捷入口">
+            <img src="assets/avatar-nezha.svg"   data-id="nezha"   alt="哪吒">
+            <img src="assets/avatar-wukong.svg"  data-id="wukong"  alt="孙悟空">
+            <img src="assets/avatar-erlang.svg"  data-id="erlang"  alt="杨戬">
+            <img src="assets/avatar-change.svg"  data-id="change"  alt="嫦娥">
+            <img src="assets/avatar-kuafu.svg"   data-id="kuafu"   alt="夸父">
+            <img src="assets/avatar-jingwei.svg" data-id="jingwei" alt="精卫">
+        </div>
+
+        <p class="home-foot">
+            <span class="foot-who" id="whoami"></span>
+            建议开启声音 · 可听到人物逐字朗读
+            <span class="foot-sep" aria-hidden="true">|</span>
+            <button class="foot-link" id="logoutBtn" type="button">退出登录</button>
+        </p>
+    </main>
+
+    <!-- 关于本志 -->
+    <div class="overlay" id="aboutOverlay" role="dialog" aria-modal="true" aria-label="关于本志">
+        <div class="dialog">
+            <button class="close-x" data-close type="button" aria-label="关闭">×</button>
+            <h3>关于本志</h3>
+            <p>「上古纪事 · 神话人物故事集」收录了六位中国上古神话与传说中的角色：哪吒、孙悟空、杨戬、嫦娥、夸父、精卫。</p>
+            <p>浏览顺序：登录 → 首页 →「开始探索」进入人物选择 → 人物详情 → 人物对话。每位人物配有专属台词与场景旁白，文字逐字浮现，并可同步语音朗读。</p>
+            <p class="hint">
+                操作提示：<br>
+                · 点击左侧名录切换人物<br>
+                · 「下一句 / 上一句」翻动台词，末句再点即跳下一位<br>
+                · 快捷键 ← → 翻页，空格 下一句，R 重播<br>
+                · 「自动连播」可让人物自己说下去
+            </p>
+            <div class="dialog-actions">
+                <button class="btn-mini primary" data-close type="button">知道了</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 退出确认 -->
+    <div class="overlay" id="exitOverlay" role="dialog" aria-modal="true" aria-label="退出确认">
+        <div class="dialog">
+            <button class="close-x" data-close type="button" aria-label="关闭">×</button>
+            <h3>确定要退出吗？</h3>
+            <p>六位人物还在等你，要不……再多留一会儿？</p>
+            <div class="dialog-actions">
+                <button class="btn-mini" data-close type="button">再逛逛</button>
+                <button class="btn-mini primary" id="exitConfirm" type="button">退出</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bg.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

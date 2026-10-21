@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人物馆｜上古纪事</title>
+
+    <!-- 登录门禁：未登录则先跳转 login.html -->
+    <script src="js/auth.js"></script>
+    <script>if (window.MythoAuth) { window.MythoAuth.require(); }</script>
+
+    <link rel="stylesheet" href="css/characters.css">
+</head>
+<body>
+
+<div id="userInfo"></div>
+<button class="logout-btn" onclick="logout()">退出登录</button>
+
+<div class="header">
+    <h1>上古纪事</h1>
+    <div class="divider"></div>
+    <p class="subtitle">一卷神话 · 六位传奇<br>凭一纸名姓，入这一卷山海</p>
+</div>
+
+<!-- 六个人物卡片 -->
+<div class="character-grid">
+    <div class="char-card" tabindex="0" onclick="location.href='nezha.html'">
+        <div class="char-avatar">吒</div>
+        <div class="char-name">哪吒</div>
+        <div class="char-tag">莲花化身 · 少年战神</div>
+    </div>
+    <div class="char-card" tabindex="0" onclick="location.href='wukong.html'">
+        <div class="char-avatar">悟</div>
+        <div class="char-name">孙悟空</div>
+        <div class="char-tag">齐天大圣 · 斗战胜佛</div>
+    </div>
+    <div class="char-card" tabindex="0" onclick="location.href='yangjian.html'">
+        <div class="char-avatar">戬</div>
+        <div class="char-name">杨戬</div>
+        <div class="char-tag">二郎真君 · 天眼通幽</div>
+    </div>
+    <div class="char-card" tabindex="0" onclick="location.href='change.html'">
+        <div class="char-avatar">娥</div>
+        <div class="char-name">嫦娥</div>
+        <div class="char-tag">月宫仙子 · 清辉千年</div>
+    </div>
+    <div class="char-card" tabindex="0" onclick="location.href='kuafu.html'">
+        <div class="char-avatar">夸</div>
+        <div class="char-name">夸父</div>
+        <div class="char-tag">逐日巨人 · 志在光明</div>
+    </div>
+    <div class="char-card" tabindex="0" onclick="location.href='jingwei.html'">
+        <div class="char-avatar is-two">精卫</div>
+        <div class="char-name">精卫</div>
+        <div class="char-tag">衔石填海 · 执念不渝</div>
+    </div>
+</div>
+
+<p class="footer-tip">✦ 点击人物，开启专属故事 ✦</p>
+<a class="back-home" href="index.html">← 返回首页</a>
+
+<script src="js/select.js"></script>
+</body>
+</html>
