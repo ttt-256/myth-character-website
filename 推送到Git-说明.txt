@@ -1,0 +1,66 @@
+把「上古纪事」推到 Git —— 三种方式，任选一种
+================================================================
+
+项目本地仓库已就绪：
+  路径：C:\Users\datan\WorkBuddy\2026-10-15-13-58-24\mythology-site
+  分支：main
+  提交：2 个（4529c5b 初始化站点 / 254e9f2 通行密钥登录）
+  文件：33 个，工作区干净
+
+目前唯一的缺口：这台电脑没有登录任何 Git 平台，所以没有推送权限。
+
+
+方式一：把仓库地址给我，我来推（最省事）
+----------------------------------------------------------------
+1. 先去 GitHub / Gitee 新建一个空仓库
+   ★ 不要勾选「初始化 README / .gitignore / License」，否则会产生冲突
+2. 把仓库地址发我，例如：
+   https://github.com/你的用户名/laojishi.git
+   或 git@github.com:你的用户名/laojishi.git
+3. 如果是 HTTPS 地址，把访问令牌一起给我（见下方「令牌怎么生成」）
+   如果是 SSH 地址，先把下面这行公钥加到你的账号里（Settings → SSH and GPG keys）：
+
+   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICppAr/vuP742OeaqTty5D0qHg25wl75x2vQGzLQXB8H datan@mythology-site
+
+   加完之后我不用任何密码就能直接 push。
+
+
+方式二：你自己双击一个文件就推完
+----------------------------------------------------------------
+用 dist\push-to-git.bat
+  1. 双击它
+  2. 粘贴仓库地址，回车
+  3. 按提示输账号密码（GitHub 的「密码」要填访问令牌，不是登录密码）
+
+也支持直接带参数运行（在命令行里）：
+  push-to-git.bat https://github.com/你的用户名/laojishi.git
+
+
+方式三：在别的电脑 / 别的项目里恢复这个仓库
+----------------------------------------------------------------
+dist\mythology-site.bundle 是一个完整的 Git 包，含全部提交历史：
+
+  git clone mythology-site.bundle laojishi
+  cd laojishi
+  git remote set-url origin https://github.com/你的用户名/laojishi.git
+  git push -u origin main
+
+只想拿源码、不要历史 → 用 dist\mythology-site.zip，解压即是完整站点。
+
+
+令牌怎么生成（GitHub）
+----------------------------------------------------------------
+Settings → Developer settings → Personal access tokens
+  → Tokens (classic) → Generate new token
+  → 勾选 repo 权限 → 生成后复制（只显示一次）
+
+Gitee：设置 → 私人令牌 → 生成新令牌 → 勾选 projects 权限
+
+令牌只在这一次推送里用，推完建议立刻撤销。
+
+
+署名说明
+----------------------------------------------------------------
+当前两个提交的作者是占位的 datan / datan@users.noreply.local。
+把真实姓名和邮箱给我，我会用下面这条命令重写后再推，历史里就是你的署名：
+  git rebase --root --exec "git commit --amend --reset-author --no-edit"
