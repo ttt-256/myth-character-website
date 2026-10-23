@@ -1,0 +1,360 @@
+/* ============================================================
+   人物故事页（逐字浮现）· 六位人物共用
+   ------------------------------------------------------------
+   排版与结构沿用用户原稿；颜色由每个人物的主题色驱动，
+   页面用 <body class="bg-xxx"> 切换，换人物只换色，不改结构。
+
+   可调变量（在 body.bg-xxx 里覆盖）：
+     --accent        主色：边框、按钮、弹窗、光标
+     --accent-rgb    主色 RGB，用于半透明叠加
+     --title         人物名颜色
+     --subtitle      副标题颜色
+     --glow          光晕（弱）
+     --glow-strong   光晕（强）
+   ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
+}
+
+body {
+    /* 默认（哪吒）主题，各人物在自己的 bg-xxx 里覆盖 */
+    --accent: #ff7844;
+    --accent-rgb: 255, 120, 68;
+    --title: #ff9f44;
+    --subtitle: #ffd9b3;
+    --glow: rgba(255, 120, 68, 0.4);
+    --glow-strong: rgba(255, 120, 68, 0.6);
+
+    min-height: 100vh;
+    padding: 40px 20px;
+    line-height: 2;
+    color: #eee;
+    position: relative;
+    cursor: pointer;
+    background: #1c1c2e;   /* 兜底底色 */
+}
+
+/* ============================================================
+   一、六位人物各自的主题色与背景光晕
+   ------------------------------------------------------------
+   每套都是「两团径向光 + 一条对角渐变」，只换颜色，结构一致。
+   ============================================================ */
+
+/* 哪吒：火尖枪与风火轮的红橙 */
+body.bg-nezha {
+    --accent: #ff7844;
+    --accent-rgb: 255, 120, 68;
+    --title: #ff9f44;
+    --subtitle: #ffd9b3;
+    --glow: rgba(255, 120, 68, 0.4);
+    --glow-strong: rgba(255, 120, 68, 0.6);
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 120, 68, 0.35), transparent 45%),
+        radial-gradient(circle at 80% 30%, rgba(255, 60, 60, 0.25), transparent 50%),
+        linear-gradient(135deg, #2a0f08 0%, #4a1c10 45%, #1a0a08 100%);
+}
+
+/* 孙悟空：金睛金箍的暖金 + 花果山的青绿 */
+body.bg-wukong {
+    --accent: #ffb83c;
+    --accent-rgb: 255, 184, 60;
+    --title: #ffd066;
+    --subtitle: #ffe2aa;
+    --glow: rgba(255, 184, 60, 0.4);
+    --glow-strong: rgba(255, 184, 60, 0.6);
+    background:
+        radial-gradient(circle at 30% 20%, rgba(255, 180, 60, 0.35), transparent 45%),
+        radial-gradient(circle at 70% 80%, rgba(100, 200, 80, 0.25), transparent 50%),
+        linear-gradient(135deg, #2b1d05 0%, #4a3410 45%, #081208 100%);
+}
+
+/* 杨戬：天眼与银枪的冷青 */
+body.bg-yangjian {
+    --accent: #6fc9ff;
+    --accent-rgb: 111, 201, 255;
+    --title: #9fdcff;
+    --subtitle: #d3efff;
+    --glow: rgba(111, 201, 255, 0.4);
+    --glow-strong: rgba(111, 201, 255, 0.6);
+    background:
+        radial-gradient(circle at 22% 20%, rgba(111, 201, 255, 0.32), transparent 46%),
+        radial-gradient(circle at 78% 32%, rgba(92, 132, 255, 0.24), transparent 52%),
+        linear-gradient(135deg, #081724 0%, #123048 45%, #050c14 100%);
+}
+
+/* 嫦娥：广寒宫与桂树的月白 */
+body.bg-change {
+    --accent: #a9c4ff;
+    --accent-rgb: 169, 196, 255;
+    --title: #d3e1ff;
+    --subtitle: #ecf2ff;
+    --glow: rgba(169, 196, 255, 0.42);
+    --glow-strong: rgba(169, 196, 255, 0.62);
+    background:
+        radial-gradient(circle at 24% 18%, rgba(200, 220, 255, 0.34), transparent 46%),
+        radial-gradient(circle at 76% 34%, rgba(150, 168, 255, 0.24), transparent 52%),
+        linear-gradient(135deg, #0b1226 0%, #1b2748 45%, #070a16 100%);
+}
+
+/* 夸父：逐日与邓林的暮金 */
+body.bg-kuafu {
+    --accent: #ffa94d;
+    --accent-rgb: 255, 169, 77;
+    --title: #ffc47a;
+    --subtitle: #ffe0b8;
+    --glow: rgba(255, 169, 77, 0.4);
+    --glow-strong: rgba(255, 169, 77, 0.6);
+    background:
+        radial-gradient(circle at 26% 16%, rgba(255, 210, 96, 0.34), transparent 46%),
+        radial-gradient(circle at 74% 36%, rgba(255, 104, 44, 0.24), transparent 52%),
+        linear-gradient(135deg, #2b1a05 0%, #4e2c08 45%, #180e03 100%);
+}
+
+/* 精卫：东海与填海的青碧 */
+body.bg-jingwei {
+    --accent: #5fe0cd;
+    --accent-rgb: 95, 224, 205;
+    --title: #8ef0e0;
+    --subtitle: #cffcf4;
+    --glow: rgba(95, 224, 205, 0.4);
+    --glow-strong: rgba(95, 224, 205, 0.6);
+    background:
+        radial-gradient(circle at 22% 20%, rgba(96, 226, 210, 0.3), transparent 46%),
+        radial-gradient(circle at 78% 30%, rgba(64, 150, 255, 0.22), transparent 52%),
+        linear-gradient(135deg, #04211f 0%, #0b3a55 45%, #03110f 100%);
+}
+
+/* ============================================================
+   二、人物头像
+   ============================================================ */
+
+.avatar-box {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 25px var(--glow-strong);
+    overflow: hidden;
+    background: #111;
+}
+
+.avatar-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.upload-area {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.upload-area label {
+    cursor: pointer;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ddd;
+    font-size: 14px;
+    transition: all 0.25s;
+}
+
+.upload-area label:hover {
+    background: rgba(var(--accent-rgb), 0.18);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.upload-area input {
+    display: none;
+}
+
+/* ============================================================
+   三、标题与正文
+   ============================================================ */
+
+h1 {
+    text-align: center;
+    color: var(--title);
+    font-size: 42px;
+    letter-spacing: 4px;
+    text-indent: 4px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 18px var(--glow);
+}
+
+.char-subtitle {
+    text-align: center;
+    color: var(--subtitle);
+    font-size: 16px;
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+}
+
+.box {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    min-height: 300px;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* 保留正文里的换行分段 */
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* 末尾光标，提示正在逐字书写 */
+.box.typing::after {
+    content: "▌";
+    color: var(--accent);
+    animation: caret 0.9s steps(1) infinite;
+}
+
+@keyframes caret {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+.back {
+    padding: 8px 20px;
+    background: var(--accent);
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: filter 0.2s ease;
+}
+
+.back:hover {
+    filter: brightness(1.08);
+}
+
+/* ============================================================
+   四、交互弹窗
+   ============================================================ */
+
+.dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(420px, 88vw);
+    background: #282840;
+    border: 2px solid var(--accent);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    z-index: 999;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.dialog p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.dialog button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+}
+
+.dialog button:hover {
+    filter: brightness(1.1);
+}
+
+.dialog button.ghost {
+    background: transparent;
+    border: 1px solid rgba(var(--accent-rgb), 0.65);
+    color: var(--subtitle);
+}
+
+.dialog button.ghost:hover {
+    background: rgba(var(--accent-rgb), 0.14);
+}
+
+.mask {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+}
+
+/* ============================================================
+   五、顶部操作提示
+   ============================================================ */
+
+.skip-tip {
+    max-width: 800px;
+    margin: 0 auto 18px;
+    font-size: 13px;
+    color: rgba(238, 238, 238, 0.45);
+    letter-spacing: 1px;
+}
+
+/* ============================================================
+   六、响应式
+   ============================================================ */
+
+@media (max-width: 640px) {
+    body {
+        padding: 24px 18px 40px;
+    }
+
+    .avatar-box {
+        width: 104px;
+        height: 104px;
+        margin-bottom: 12px;
+    }
+
+    .upload-area {
+        margin-bottom: 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+        letter-spacing: 3px;
+        text-indent: 3px;
+        margin-bottom: 10px;
+    }
+
+    .char-subtitle {
+        font-size: 14px;
+        margin-bottom: 18px;
+    }
+
+    .box {
+        font-size: 16.5px;
+        line-height: 1.95;
+        padding: 20px 18px;
+    }
+
+    .dialog {
+        padding: 24px 20px;
+    }
+
+    .dialog button {
+        display: block;
+        width: 100%;
+        margin: 10px 0 0;
+    }
+}

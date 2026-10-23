@@ -1,0 +1,133 @@
+「上古纪事」神话人物志 · 产物合集
+================================================================
+导出时间：2026-10-22 16:27
+产物总数：51 个（本次会话中出现过的全部产物卡片）
+文件总数：62 个（除 51 个产物外，另含站点运行必需、但未单独呈现的配套文件）
+
+一、目录结构
+----------------------------------------------------------------
+01-网站源码/     37 个  —— 完整可运行站点（Supabase 邮箱登录版）
+02-导出与备份/    6 个  —— HTML 代码清单、git bundle、zip 包、推送脚本
+03-界面截图/     15 个  —— 各阶段界面与验证截图（PNG）
+04-旧桌面副本/    4 个  —— 早前桌面副本的 4 个文件（原文件夹已删除，此处为恢复件）
+
+二、怎么跑起来
+----------------------------------------------------------------
+1. 进 01-网站源码 文件夹
+2. 双击 login.html 即可体验（登录需联网，账号走 Supabase）
+3. 想用本地服务：在该文件夹执行  node server.js  然后访问 http://127.0.0.1:3000/login.html
+   注意：server.js 现在只负责静态托管；账号体系在 Supabase 云上。
+   若用 file:// 直接打开，登录会因浏览器安全策略失败，请用上面任一种方式。
+
+三、51 个产物对照表
+----------------------------------------------------------------
+[1]   2026-10-15-13-58-24/mythology-site/index.html
+      → 01-网站源码/index.html
+[2]   2026-10-15-13-58-24/mythology-site/story.html
+      → 01-网站源码/story.html
+[3]   2026-10-15-13-58-24/mythology-site/js/characters.js
+      → 01-网站源码/js/characters.js
+[4]   2026-10-15-13-58-24/mythology-site/assets/README.md
+      → 01-网站源码/assets/README.md
+[5]   2026-10-15-13-58-24/mythology-site/login.html
+      → 01-网站源码/login.html
+[6]   2026-10-15-13-58-24/mythology-site/js/auth.js
+      → 01-网站源码/js/auth.js
+[7]   2026-10-15-13-58-24/mythology-site/js/login.js
+      → 01-网站源码/js/login.js
+[8]   2026-10-15-13-58-24/mythology-site/css/login.css
+      → 01-网站源码/css/login.css
+[9]   2026-10-15-13-58-24/mythology-site/characters.html
+      → 01-网站源码/characters.html
+[10]  2026-10-15-13-58-24/mythology-site/css/characters.css
+      → 01-网站源码/css/characters.css
+[11]  2026-10-15-13-58-24/mythology-site/js/select.js
+      → 01-网站源码/js/select.js
+[12]  2026-10-15-13-58-24/mythology-site/nezha.html
+      → 01-网站源码/nezha.html
+[13]  2026-10-15-13-58-24/mythology-site/css/detail.css
+      → （未收录）   （已废弃：哪吒详情页改版为故事页后删除，功能由 css/tale.css 承担）
+[14]  2026-10-15-13-58-24/mythology-site/js/detail.js
+      → （未收录）   （已废弃：同上，功能由 js/tale.js 承担）
+[15]  2026-10-15-13-58-24/mythology-site/wukong.html
+      → 01-网站源码/wukong.html
+[16]  2026-10-15-13-58-24/mythology-site/yangjian.html
+      → 01-网站源码/yangjian.html
+[17]  2026-10-15-13-58-24/mythology-site/change.html
+      → 01-网站源码/change.html
+[18]  2026-10-15-13-58-24/mythology-site/kuafu.html
+      → 01-网站源码/kuafu.html
+[19]  2026-10-15-13-58-24/mythology-site/jingwei.html
+      → 01-网站源码/jingwei.html
+[20]  2026-10-15-13-58-24/mythology-site/js/tales.js
+      → 01-网站源码/js/tales.js
+[21]  2026-10-15-13-58-24/mythology-site/js/tale.js
+      → 01-网站源码/js/tale.js
+[22]  2026-10-15-13-58-24/mythology-site/css/tale.css
+      → 01-网站源码/css/tale.css
+[23]  2026-10-15-13-58-24/mythology-site/assets/avatars/README.md
+      → 01-网站源码/assets/avatars/README.md
+[24]  2026-10-15-13-58-24/.tmp/shots/wukong.png
+      → 03-界面截图/wukong.png
+[25]  2026-10-15-13-58-24/.tmp/shots/change.png
+      → 03-界面截图/change.png
+[26]  2026-10-15-13-58-24/mythology-site/js/passkey.js
+      → 01-网站源码/js/passkey.js
+[27]  2026-10-15-13-58-24/.tmp/shots/login-passkey.png
+      → 03-界面截图/login-passkey.png
+[28]  2026-10-15-13-58-24/.tmp/shots/login-default.png
+      → 03-界面截图/login-default.png
+[29]  2026-10-15-13-58-24/dist/推送到Git-说明.txt
+      → 02-导出与备份/推送到Git-说明.txt
+[30]  2026-10-15-13-58-24/dist/push-to-git.bat
+      → 02-导出与备份/push-to-git.bat
+[31]  2026-10-15-13-58-24/dist/mythology-site.bundle
+      → 02-导出与备份/mythology-site.bundle
+[32]  2026-10-15-13-58-24/dist/mythology-site.zip
+      → 02-导出与备份/mythology-site.zip
+[33]  2026-10-15-13-58-24/dist/HTML代码清单.html
+      → 02-导出与备份/HTML代码清单.html
+[34]  2026-10-15-13-58-24/dist/HTML代码清单.md
+      → 02-导出与备份/HTML代码清单.md
+[35]  Desktop/上古纪事-mythology-site/开箱说明.txt
+      → 04-旧桌面副本/开箱说明.txt   （从会话记录 / Git 历史原样恢复）
+[36]  Desktop/上古纪事-mythology-site/login.html
+      → 04-旧桌面副本/login.html   （从会话记录 / Git 历史原样恢复）
+[37]  Desktop/上古纪事-mythology-site/导出物/HTML代码清单.html
+      → 04-旧桌面副本/HTML代码清单.html   （从会话记录 / Git 历史原样恢复）
+[38]  Desktop/上古纪事-mythology-site/README.md
+      → 04-旧桌面副本/README.md   （从会话记录 / Git 历史原样恢复）
+[39]  2026-10-15-13-58-24/mythology-site/server.js
+      → 01-网站源码/server.js
+[40]  2026-10-15-13-58-24/mythology-site/README.md
+      → 01-网站源码/README.md
+[41]  2026-10-15-13-58-24/.tmp/shots2/loggedin.png
+      → 03-界面截图/loggedin.png
+[42]  2026-10-15-13-58-24/.tmp/shots2/guard.png
+      → 03-界面截图/guard.png
+[43]  2026-10-15-13-58-24/.tmp/char-desktop.png
+      → 03-界面截图/char-desktop.png
+[44]  2026-10-15-13-58-24/.tmp/char-mobile2.png
+      → 03-界面截图/char-mobile2.png
+[45]  2026-10-15-13-58-24/.tmp/login-now.png
+      → 03-界面截图/login-now.png
+[46]  2026-10-15-13-58-24/.tmp/login-supabase.png
+      → 03-界面截图/login-supabase.png
+[47]  2026-10-15-13-58-24/.tmp/char-degraded.png
+      → 03-界面截图/char-degraded.png
+[48]  2026-10-15-13-58-24/.tmp/guard-redirect.png
+      → 03-界面截图/guard-redirect.png
+[49]  2026-10-15-13-58-24/.tmp/login-back.png
+      → 03-界面截图/login-back.png
+[50]  2026-10-15-13-58-24/.tmp/login-supa2.png
+      → 03-界面截图/login-supa2.png
+[51]  2026-10-15-13-58-24/.tmp/guard-supa2.png
+      → 03-界面截图/guard-supa2.png
+
+四、两点说明
+----------------------------------------------------------------
+1. 第 13、14 号（css/detail.css、js/detail.js）是早期的"哪吒详情页"样式与脚本，
+   后来详情页方案改成六个独立故事页，这两个文件在改版时被删除，仓库历史里也没有，
+   所以本文件夹中无法收录，功能由 css/tale.css 与 js/tale.js 承接。
+2. 02-导出与备份 里的 HTML代码清单 / bundle / zip 生成于 10 月 18 日，
+   内容是当时的版本（本地 Node 登录）。当前最新代码以 01-网站源码 为准。

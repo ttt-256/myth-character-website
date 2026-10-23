@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录｜上古纪事</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/auth.js"></script>
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <main class="page login-page">
+        <div class="login-wrap">
+
+            <!-- 左：品牌区 -->
+            <section class="login-brand">
+                <p class="eyebrow">上 古 纪 事</p>
+                <h1 class="brand-title">上古纪事</h1>
+                <p class="brand-sub">一卷神话 · 六位传奇</p>
+
+                <div class="brand-rule" aria-hidden="true"></div>
+                <p class="brand-quote">「凭一纸名姓，<br>入这一卷山海。」</p>
+
+                <div class="brand-faces" aria-hidden="true">
+                    <img src="assets/avatar-nezha.svg" alt="哪吒">
+                    <img src="assets/avatar-wukong.svg" alt="孙悟空">
+                    <img src="assets/avatar-erlang.svg" alt="杨戬">
+                    <img src="assets/avatar-change.svg" alt="嫦娥">
+                    <img src="assets/avatar-kuafu.svg" alt="夸父">
+                    <img src="assets/avatar-jingwei.svg" alt="精卫">
+                </div>
+            </section>
+
+            <!-- 右：登录 / 注册 -->
+            <section class="login-panel">
+                <div class="auth-card">
+
+                    <div class="auth-tabs" role="tablist" aria-label="登录或注册">
+                        <button class="auth-tab active" id="tabLogin" type="button" role="tab"
+                                aria-selected="true" aria-controls="loginForm">登录</button>
+                        <button class="auth-tab" id="tabRegister" type="button" role="tab"
+                                aria-selected="false" aria-controls="registerForm">注册</button>
+                    </div>
+
+                    <!-- 登录表单 -->
+                    <form class="auth-form" id="loginForm" novalidate>
+                        <div class="field">
+                            <label class="field-label" for="loginUser">邮箱</label>
+                            <input type="email" id="loginUser" name="email" placeholder="name@qq.com"
+                                   autocomplete="email" spellcheck="false" required>
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="loginPwd">密码</label>
+                            <input type="password" id="loginPwd" name="password" placeholder="输入密码"
+                                   autocomplete="current-password" required>
+                        </div>
+                        <p class="auth-msg" id="msg" role="status" aria-live="polite"></p>
+                        <button class="game-button auth-submit" type="submit">登 录</button>
+                    </form>
+
+                    <!-- 注册表单 -->
+                    <form class="auth-form" id="registerForm" novalidate style="display:none;">
+                        <div class="field">
+                            <label class="field-label" for="regUser">邮箱</label>
+                            <input type="email" id="regUser" name="email" placeholder="name@qq.com"
+                                   autocomplete="email" spellcheck="false" required>
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="regPwd">密码</label>
+                            <input type="password" id="regPwd" name="password" placeholder="至少 6 位"
+                                   autocomplete="new-password" minlength="6" required>
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="regPwd2">确认密码</label>
+                            <input type="password" id="regPwd2" name="password_confirm" placeholder="再次输入密码"
+                                   autocomplete="new-password" required>
+                        </div>
+                        <p class="auth-msg" id="msg2" role="status" aria-live="polite"></p>
+                        <button class="game-button auth-submit" type="submit">注 册</button>
+                    </form>
+
+                    <p class="auth-note">
+                        账号由 Supabase 托管，注册与密码校验都在云端完成，本站不保存任何密码。
+                        换设备用同一个邮箱即可登录；本站仅用于展示，请勿使用真实常用密码。
+                    </p>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="js/bg.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
