@@ -48,10 +48,9 @@
                     <!-- 登录表单 -->
                     <form class="auth-form" id="loginForm" novalidate>
                         <div class="field">
-                            <label class="field-label" for="loginUser">用户名</label>
-                            <!-- autocomplete 末尾的 webauthn 是条件式通行密钥自动填充的必要标记 -->
-                            <input type="text" id="loginUser" name="username" placeholder="输入用户名"
-                                   autocomplete="username webauthn" spellcheck="false" required>
+                            <label class="field-label" for="loginUser">邮箱</label>
+                            <input type="email" id="loginUser" name="email" placeholder="name@qq.com"
+                                   autocomplete="email" spellcheck="false" required>
                         </div>
                         <div class="field">
                             <label class="field-label" for="loginPwd">密码</label>
@@ -60,29 +59,19 @@
                         </div>
                         <p class="auth-msg" id="msg" role="status" aria-live="polite"></p>
                         <button class="game-button auth-submit" type="submit">登 录</button>
-
-                        <!-- 通行密钥（可选）。未配置后端接口时由 js/passkey.js 自动隐藏 -->
-                        <div class="passkey-box" id="passkeyBox" hidden>
-                            <div class="passkey-divider" aria-hidden="true"><span>或</span></div>
-                            <button class="passkey-btn" id="passkeyBtn" type="button">
-                                <span class="passkey-icon" aria-hidden="true">◈</span>
-                                使用通行密钥登录
-                            </button>
-                            <p class="passkey-msg" id="passkeyMsg" role="status" aria-live="polite"></p>
-                        </div>
                     </form>
 
                     <!-- 注册表单 -->
                     <form class="auth-form" id="registerForm" novalidate style="display:none;">
                         <div class="field">
-                            <label class="field-label" for="regUser">用户名</label>
-                            <input type="text" id="regUser" name="username" placeholder="创建用户名"
-                                   autocomplete="username" spellcheck="false" required>
+                            <label class="field-label" for="regUser">邮箱</label>
+                            <input type="email" id="regUser" name="email" placeholder="name@qq.com"
+                                   autocomplete="email" spellcheck="false" required>
                         </div>
                         <div class="field">
                             <label class="field-label" for="regPwd">密码</label>
-                            <input type="password" id="regPwd" name="password" placeholder="创建密码"
-                                   autocomplete="new-password" required>
+                            <input type="password" id="regPwd" name="password" placeholder="至少 6 位"
+                                   autocomplete="new-password" minlength="6" required>
                         </div>
                         <div class="field">
                             <label class="field-label" for="regPwd2">确认密码</label>
@@ -94,8 +83,8 @@
                     </form>
 
                     <p class="auth-note">
-                        账号由服务端保管，密码加密存储，换设备也能用同一账号登录。
-                        本站仅用于展示，请勿使用真实常用密码。
+                        账号由 Supabase 托管，注册与密码校验都在云端完成，本站不保存任何密码。
+                        换设备用同一个邮箱即可登录；本站仅用于展示，请勿使用真实常用密码。
                     </p>
 
                 </div>
@@ -106,6 +95,5 @@
 
     <script src="js/bg.js"></script>
     <script src="js/login.js"></script>
-    <script src="js/passkey.js"></script>
 </body>
 </html>
