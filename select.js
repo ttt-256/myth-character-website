@@ -2,7 +2,7 @@
    第二页 · 神话人物馆（角色选择）
    ------------------------------------------------------------
    卡片由下面的 characters 数组生成，顺序即页面顺序。
-   点击 → 头像亮起该人物的专属光色 → 进入他的故事页。
+   点击 → 头像亮起该人物的专属光色 → 进入人物对话页（story.html）。
    ============================================================ */
 (function () {
     'use strict';
@@ -24,7 +24,7 @@
             id: 'nezha',
             name: '哪吒',
             desc: '莲花化身 · 少年战神',
-            page: 'nezha.html',
+            page: 'story.html?c=nezha',
             avatar: 'assets/avatars/nezha.jpg',
             fallback: 'assets/avatar-nezha.svg',
             borderColor: '#ff4b4b'      // 哪吒是红色系
@@ -33,7 +33,7 @@
             id: 'wukong',
             name: '孙悟空',
             desc: '齐天大圣 · 斗战胜佛',
-            page: 'wukong.html',
+            page: 'story.html?c=wukong',
             avatar: 'assets/avatars/wukong.jpg',
             fallback: 'assets/avatar-wukong.svg',
             borderColor: '#ffaa00'      // 悟空是橙金色
@@ -42,7 +42,7 @@
             id: 'erlang',
             name: '杨戬',
             desc: '二郎真君 · 天眼通幽',
-            page: 'yangjian.html',
+            page: 'story.html?c=erlang',
             avatar: 'assets/avatars/yangjian.jpg',
             fallback: 'assets/avatar-erlang.svg',
             borderColor: '#4b89ff'      // 杨戬是冰蓝色
@@ -51,7 +51,7 @@
             id: 'change',
             name: '嫦娥',
             desc: '月宫仙子 · 清辉千年',
-            page: 'change.html',
+            page: 'story.html?c=change',
             avatar: 'assets/avatars/change.jpg',
             fallback: 'assets/avatar-change.svg',
             borderColor: '#c84bdc'      // 嫦娥是紫粉色
@@ -60,7 +60,7 @@
             id: 'kuafu',
             name: '夸父',
             desc: '逐日巨人 · 志在光明',
-            page: 'kuafu.html',
+            page: 'story.html?c=kuafu',
             avatar: 'assets/avatars/kuafu.jpg',
             fallback: 'assets/avatar-kuafu.svg',
             borderColor: '#ff7b00'      // 夸父是烈火橙
@@ -69,7 +69,7 @@
             id: 'jingwei',
             name: '精卫',
             desc: '衔石填海 · 执念不渝',
-            page: 'jingwei.html',
+            page: 'story.html?c=jingwei',
             avatar: 'assets/avatars/jingwei.jpg',
             fallback: 'assets/avatar-jingwei.svg',
             borderColor: '#00c4b3'      // 精卫是海洋绿

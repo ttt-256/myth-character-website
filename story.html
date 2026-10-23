@@ -14,6 +14,16 @@
 
     <canvas id="bgCanvas" width="723" height="842" style="width: 579px; height: 674px;" data-page-node-id="cAbp0wYpNL6mYgbQuQGjaj"></canvas>
 
+    <!-- 背景人物层：站内占位头像放大虚化，若 assets/avatars/ 里有同名 jpg 会自动换成名画风的图 -->
+    <div class="bg-legends" aria-hidden="true">
+        <img src="assets/avatar-nezha.svg" alt="" style="--x:-6%; --y:2%; --s:400px; --o:.10; --d:0s">
+        <img src="assets/avatar-wukong.svg" alt="" style="--x:74%; --y:-4%; --s:360px; --o:.08; --d:-3s">
+        <img src="assets/avatar-erlang.svg" alt="" style="--x:82%; --y:56%; --s:420px; --o:.09; --d:-6s">
+        <img src="assets/avatar-change.svg" alt="" style="--x:4%; --y:62%; --s:340px; --o:.09; --d:-9s">
+        <img src="assets/avatar-kuafu.svg" alt="" style="--x:36%; --y:80%; --s:300px; --o:.07; --d:-12s">
+        <img src="assets/avatar-jingwei.svg" alt="" style="--x:44%; --y:-6%; --s:280px; --o:.08; --d:-5s">
+    </div>
+
     <div class="page" data-page-node-id="XYuiacmgY41sTG8qgiuGHn">
 
         <!-- 顶栏 -->
@@ -25,6 +35,12 @@
             <button class="voice-toggle on" id="voiceBtn" type="button" title="语音朗读开关" data-page-node-id="InIFytkpYGDfORJJCLtEVC">
                 <span class="ico" data-page-node-id="NT2lDGWE8a7Ymx6tpihrNp">🔊</span><span class="label" data-page-node-id="Jz7HafiBpUFIHG2xXBJXdO">语音朗读 · 开</span>
             </button>
+
+            <span class="topbar-divider" aria-hidden="true"></span>
+            <button class="voice-toggle" id="avatarBtn" type="button" title="从本地选一张图片设为头像（也可以直接点头像）">换头像</button>
+            <button class="voice-toggle" id="exportBtn" type="button" title="把当前人物卡导出为 PNG 图片">导出本页图片</button>
+            <button class="voice-toggle" id="resetBtn" type="button" title="恢复当前人物的默认文字">恢复默认文本</button>
+            <input type="file" id="avatarFile" accept="image/*" hidden>
         </header>
 
         <main class="story-layout" data-page-node-id="dYgCFGFEVACalPcvq9Pf5z">
@@ -67,11 +83,26 @@
                     <div class="progress" id="progress" data-page-node-id="n8JEiD7OwmhaMPdpbTCVXd"><button class="dot" type="button" title="第 1 句" data-page-node-id="UcyE3Thok1V51QM9yWaWrN"></button><button class="dot active" type="button" title="第 2 句" data-page-node-id="MFIkqIb60r5OrtkPTnYKgY"></button><button class="dot" type="button" title="第 3 句" data-page-node-id="Wq9n6s1nZRVbrUImVExfBx"></button><button class="dot" type="button" title="第 4 句" data-page-node-id="Rzt0RefIpTZlGsfGfa8ZQC"></button><button class="dot" type="button" title="第 5 句" data-page-node-id="deGinOg3DvYawO1b9f8B11"></button><span class="count" data-page-node-id="yZs5JW5Y5VMfGIymGEHbT2">2 / 5</span></div>
                 </div>
 
+                <div class="chat-area">
+                    <p class="chat-label">我 想 对 他 说</p>
+                    <div class="chat-chip hide" id="chatChip"><span class="chat-text"></span><span class="chat-name"></span></div>
+                    <div class="chat-row">
+                        <input class="chat-input" id="chatInput" type="text" maxlength="80" placeholder="想对哪吒说点什么…" aria-label="对人物说话">
+                        <button class="chat-send" id="chatSend" type="button" title="发送（回车也可以）">➤</button>
+                    </div>
+                </div>
+
                 <p class="key-hint" data-page-node-id="OGpIz7OiTu1qnEJIvN2Jo7">
                     快捷键：<kbd data-page-node-id="BXpE4EImBTR1nkPLXEp6WI">←</kbd><kbd data-page-node-id="mSWfJqf89TMC2obDdh7lF6">→</kbd> 翻页 · <kbd data-page-node-id="Z1lU15XskQBvPjXw7xfqzN">空格</kbd> 下一句 · <kbd data-page-node-id="QxlALcwg9xcK82hPLcvKOU">R</kbd> 重播
                 </p>
 
                 <p class="voice-tip hide" id="voiceTip" data-page-node-id="lXO1L6d2QbCUXsTGkXJZnC">🔊 若暂时没有声音，点击页面任意处即可开启语音朗读</p>
+
+                <p class="edit-hint">
+                    可以怎么改：名字、称号、标签、介绍与台词，直接点上去就能改，改完自动存在本机浏览器；
+                    头像点一下（或右上角「换头像」）即可换成你自己的图片，右键头像恢复默认；
+                    想让所有人都看到，把图片按 <b>assets/avatars/人物id.jpg</b> 命名放进项目即可。
+                </p>
             </section>
 
         </main>
