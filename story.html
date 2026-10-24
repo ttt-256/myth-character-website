@@ -84,10 +84,13 @@
                 </div>
 
                 <div class="chat-area">
-                    <p class="chat-label">我 想 对 他 说</p>
-                    <div class="chat-chip hide" id="chatChip"><span class="chat-text"></span><span class="chat-name"></span></div>
+                    <div class="chat-head">
+                        <p class="chat-label">我 想 对 他 说</p>
+                        <button class="chat-clear" id="chatClear" type="button" title="清空与当前人物的聊天记录">清空对话</button>
+                    </div>
+                    <div class="chat-log" id="chatLog" aria-live="polite"></div>
                     <div class="chat-row">
-                        <input class="chat-input" id="chatInput" type="text" maxlength="80" placeholder="想对哪吒说点什么…" aria-label="对人物说话">
+                        <input class="chat-input" id="chatInput" type="text" maxlength="200" placeholder="想对哪吒说点什么…" aria-label="对人物说话">
                         <button class="chat-send" id="chatSend" type="button" title="发送（回车也可以）">➤</button>
                     </div>
                 </div>
