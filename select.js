@@ -25,7 +25,7 @@
             name: '哪吒',
             desc: '莲花化身 · 少年战神',
             page: 'story.html?c=nezha',
-            avatar: 'assets/avatars/nezha.jpg',
+            avatar: 'nezha.png',
             fallback: 'assets/avatar-nezha.svg',
             borderColor: '#ff4b4b'      // 哪吒是红色系
         },
@@ -34,7 +34,7 @@
             name: '孙悟空',
             desc: '齐天大圣 · 斗战胜佛',
             page: 'story.html?c=wukong',
-            avatar: 'assets/avatars/wukong.jpg',
+            avatar: 'wukong.png',
             fallback: 'assets/avatar-wukong.svg',
             borderColor: '#ffaa00'      // 悟空是橙金色
         },
@@ -43,7 +43,7 @@
             name: '杨戬',
             desc: '二郎真君 · 天眼通幽',
             page: 'story.html?c=erlang',
-            avatar: 'assets/avatars/yangjian.jpg',
+            avatar: 'yangjian.png',
             fallback: 'assets/avatar-erlang.svg',
             borderColor: '#4b89ff'      // 杨戬是冰蓝色
         },
@@ -52,7 +52,7 @@
             name: '嫦娥',
             desc: '月宫仙子 · 清辉千年',
             page: 'story.html?c=change',
-            avatar: 'assets/avatars/change.jpg',
+            avatar: 'change.png',
             fallback: 'assets/avatar-change.svg',
             borderColor: '#c84bdc'      // 嫦娥是紫粉色
         },
@@ -61,7 +61,7 @@
             name: '夸父',
             desc: '逐日巨人 · 志在光明',
             page: 'story.html?c=kuafu',
-            avatar: 'assets/avatars/kuafu.jpg',
+            avatar: 'kuafu.png',
             fallback: 'assets/avatar-kuafu.svg',
             borderColor: '#ff7b00'      // 夸父是烈火橙
         },
@@ -70,7 +70,7 @@
             name: '精卫',
             desc: '衔石填海 · 执念不渝',
             page: 'story.html?c=jingwei',
-            avatar: 'assets/avatars/jingwei.jpg',
+            avatar: 'jingwei.png',
             fallback: 'assets/avatar-jingwei.svg',
             borderColor: '#00c4b3'      // 精卫是海洋绿
         }
