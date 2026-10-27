@@ -6,17 +6,17 @@
     <title>哪吒｜上古纪事</title>
 
     <!-- 登录门禁：未登录则先跳转 login.html -->
-    <script src="auth.js"></script>
-    
+    <script src="js/auth.js"></script>
+    <script>if (window.MythoAuth) { window.MythoAuth.require(); }</script>
 
-    <link rel="stylesheet" href="tale.css">
+    <link rel="stylesheet" href="css/tale.css">
 </head>
 <body class="bg-nezha" data-char="nezha" data-story="nezha">
 
 <button class="back" onclick="taleGoBack()">← 返回人物馆</button>
 
 <div class="avatar-box">
-    <img src="nezha.png" alt="哪吒头像" data-fallback="assets/avatar-nezha.png">
+    <img src="assets/avatars/nezha.jpg" alt="哪吒头像" data-fallback="assets/avatar-nezha.svg">
 </div>
 <div class="upload-area">
     <label for="avatarUpload">更换头像</label>

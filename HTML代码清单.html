@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML 源码清单｜上古纪事</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --line: rgba(255,255,255,.09);
+    --text: #e8e6e3;
+    --muted: #8b90a0;
+    --gold: #e6b86c;
+    --code-bg: #12141a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 14px/1.7 "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { display: flex; align-items: flex-start; max-width: 1500px; margin: 0 auto; }
+
+  aside {
+    position: sticky; top: 0; flex: 0 0 262px;
+    height: 100vh; overflow-y: auto;
+    padding: 28px 18px 40px;
+    border-right: 1px solid var(--line);
+    background: var(--panel);
+  }
+  aside h1 { margin: 0 0 6px; font-size: 17px; letter-spacing: 1px; color: var(--gold); }
+  aside .sub { margin: 0 0 18px; font-size: 12px; color: var(--muted); line-height: 1.65; }
+  aside nav a {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 10px; margin-bottom: 2px;
+    border-radius: 7px; color: var(--text);
+    text-decoration: none; font-size: 13px;
+  }
+  aside nav a b { color: var(--muted); font-weight: 500; font-variant-numeric: tabular-nums; }
+  aside nav a span { margin-left: auto; font-size: 11px; color: var(--muted); }
+  aside nav a:hover { background: rgba(230,184,108,.12); }
+  aside nav a:hover b, aside nav a:hover span { color: var(--gold); }
+
+  main { flex: 1 1 auto; min-width: 0; padding: 28px 34px 90px; }
+  .doc-head { padding-bottom: 18px; border-bottom: 1px solid var(--line); margin-bottom: 26px; }
+  .doc-head h1 { margin: 0 0 10px; font-size: 24px; letter-spacing: 2px; }
+  .doc-head p { margin: 0 0 4px; font-size: 13px; color: var(--muted); }
+  .doc-head b { color: var(--gold); font-weight: 500; }
+
+  section { margin-bottom: 44px; scroll-margin-top: 16px; }
+  .sec-head { display: flex; align-items: center; gap: 12px; }
+  .sec-head h2 {
+    margin: 0; font-size: 17px; font-weight: 600;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .num {
+    font-size: 11px; color: var(--gold);
+    border: 1px solid rgba(230,184,108,.4); border-radius: 5px;
+    padding: 1px 6px; font-variant-numeric: tabular-nums;
+  }
+  .copy {
+    margin-left: auto; cursor: pointer;
+    background: transparent; color: var(--gold);
+    border: 1px solid rgba(230,184,108,.4); border-radius: 6px;
+    padding: 4px 12px; font-size: 12px; font-family: inherit;
+    transition: background .18s, color .18s;
+  }
+  .copy:hover { background: rgba(230,184,108,.14); }
+  .copy.done { color: #7ef0b4; border-color: rgba(126,240,180,.5); }
+  .meta { margin: 6px 0 10px; font-size: 12px; color: var(--muted); }
+
+  pre {
+    margin: 0; padding: 18px 20px;
+    background: var(--code-bg);
+    border: 1px solid var(--line); border-left: 3px solid rgba(230,184,108,.55);
+    border-radius: 9px; overflow-x: auto;
+  }
+  code {
+    font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+    font-size: 12.5px; line-height: 1.75; color: #cfd3dd;
+    white-space: pre; tab-size: 4;
+  }
+
+  @media (max-width: 900px) {
+    .wrap { display: block; }
+    aside { position: static; height: auto; flex: none; border-right: 0; border-bottom: 1px solid var(--line); }
+    aside nav { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; }
+    main { padding: 22px 14px 60px; }
+    pre { padding: 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <aside>
+    <h1>HTML 源码清单</h1>
+    <p class="sub">上古纪事 · 提交 254e9f2<br>10 个文件 ｜ 合计 611 行</p>
+    <nav><a href="#f01"><b>01</b>login.html<span>111 行</span></a><a href="#f02"><b>02</b>index.html<span>92 行</span></a><a href="#f03"><b>03</b>characters.html<span>64 行</span></a><a href="#f04"><b>04</b>nezha.html<span>43 行</span></a><a href="#f05"><b>05</b>wukong.html<span>43 行</span></a><a href="#f06"><b>06</b>yangjian.html<span>43 行</span></a><a href="#f07"><b>07</b>change.html<span>43 行</span></a><a href="#f08"><b>08</b>kuafu.html<span>43 行</span></a><a href="#f09"><b>09</b>jingwei.html<span>43 行</span></a><a href="#f10"><b>10</b>story.html<span>86 行</span></a></nav>
+  </aside>
+
+  <main>
+    <div class="doc-head">
+      <h1>「上古纪事」全部 HTML 源码</h1>
+      <p>导出时间 2026-10-18 16:36 ｜ 顺序按站点访问流程：登录 → 首页 → 人物馆 → 故事页 → 对话页</p>
+      <p>页面依赖同目录的 <b>css/</b>、<b>js/</b>、<b>assets/</b>，单独拷走一个 HTML 会丢失样式与交互。</p>
+    </div>
+    <section id="f01">
+  <div class="sec-head">
+    <h2><span class="num">01</span>login.html</h2>
+    <button class="copy" type="button" data-t="f01">复制代码</button>
+  </div>
+  <p class="meta">登录 / 注册（入口页） ｜ 111 行 ｜ 5,181 字符</p>
+  <pre><code id="c-f01">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;登录｜上古纪事&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/login.css&quot;&gt;
+    &lt;script src=&quot;js/auth.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;canvas id=&quot;bgCanvas&quot;&gt;&lt;/canvas&gt;
+
+    &lt;main class=&quot;page login-page&quot;&gt;
+        &lt;div class=&quot;login-wrap&quot;&gt;
+
+            &lt;!-- 左：品牌区 --&gt;
+            &lt;section class=&quot;login-brand&quot;&gt;
+                &lt;p class=&quot;eyebrow&quot;&gt;上 古 纪 事&lt;/p&gt;
+                &lt;h1 class=&quot;brand-title&quot;&gt;上古纪事&lt;/h1&gt;
+                &lt;p class=&quot;brand-sub&quot;&gt;一卷神话 · 六位传奇&lt;/p&gt;
+
+                &lt;div class=&quot;brand-rule&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+                &lt;p class=&quot;brand-quote&quot;&gt;「凭一纸名姓，&lt;br&gt;入这一卷山海。」&lt;/p&gt;
+
+                &lt;div class=&quot;brand-faces&quot; aria-hidden=&quot;true&quot;&gt;
+                    &lt;img src=&quot;assets/avatar-nezha.svg&quot; alt=&quot;哪吒&quot;&gt;
+                    &lt;img src=&quot;assets/avatar-wukong.svg&quot; alt=&quot;孙悟空&quot;&gt;
+                    &lt;img src=&quot;assets/avatar-erlang.svg&quot; alt=&quot;杨戬&quot;&gt;
+                    &lt;img src=&quot;assets/avatar-change.svg&quot; alt=&quot;嫦娥&quot;&gt;
+                    &lt;img src=&quot;assets/avatar-kuafu.svg&quot; alt=&quot;夸父&quot;&gt;
+                    &lt;img src=&quot;assets/avatar-jingwei.svg&quot; alt=&quot;精卫&quot;&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+
+            &lt;!-- 右：登录 / 注册 --&gt;
+            &lt;section class=&quot;login-panel&quot;&gt;
+                &lt;div class=&quot;auth-card&quot;&gt;
+
+                    &lt;div class=&quot;auth-tabs&quot; role=&quot;tablist&quot; aria-label=&quot;登录或注册&quot;&gt;
+                        &lt;button class=&quot;auth-tab active&quot; id=&quot;tabLogin&quot; type=&quot;button&quot; role=&quot;tab&quot;
+                                aria-selected=&quot;true&quot; aria-controls=&quot;loginForm&quot;&gt;登录&lt;/button&gt;
+                        &lt;button class=&quot;auth-tab&quot; id=&quot;tabRegister&quot; type=&quot;button&quot; role=&quot;tab&quot;
+                                aria-selected=&quot;false&quot; aria-controls=&quot;registerForm&quot;&gt;注册&lt;/button&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- 登录表单 --&gt;
+                    &lt;form class=&quot;auth-form&quot; id=&quot;loginForm&quot; novalidate&gt;
+                        &lt;div class=&quot;field&quot;&gt;
+                            &lt;label class=&quot;field-label&quot; for=&quot;loginUser&quot;&gt;用户名&lt;/label&gt;
+                            &lt;!-- autocomplete 末尾的 webauthn 是条件式通行密钥自动填充的必要标记 --&gt;
+                            &lt;input type=&quot;text&quot; id=&quot;loginUser&quot; placeholder=&quot;输入用户名&quot;
+                                   autocomplete=&quot;username webauthn&quot; spellcheck=&quot;false&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;field&quot;&gt;
+                            &lt;label class=&quot;field-label&quot; for=&quot;loginPwd&quot;&gt;密码&lt;/label&gt;
+                            &lt;input type=&quot;password&quot; id=&quot;loginPwd&quot; placeholder=&quot;输入密码&quot;
+                                   autocomplete=&quot;current-password&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;p class=&quot;auth-msg&quot; id=&quot;msg&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+                        &lt;button class=&quot;game-button auth-submit&quot; type=&quot;submit&quot;&gt;登 录&lt;/button&gt;
+
+                        &lt;!-- 通行密钥（可选）。未配置后端接口时由 js/passkey.js 自动隐藏 --&gt;
+                        &lt;div class=&quot;passkey-box&quot; id=&quot;passkeyBox&quot; hidden&gt;
+                            &lt;div class=&quot;passkey-divider&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;或&lt;/span&gt;&lt;/div&gt;
+                            &lt;button class=&quot;passkey-btn&quot; id=&quot;passkeyBtn&quot; type=&quot;button&quot;&gt;
+                                &lt;span class=&quot;passkey-icon&quot; aria-hidden=&quot;true&quot;&gt;◈&lt;/span&gt;
+                                使用通行密钥登录
+                            &lt;/button&gt;
+                            &lt;p class=&quot;passkey-msg&quot; id=&quot;passkeyMsg&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/form&gt;
+
+                    &lt;!-- 注册表单 --&gt;
+                    &lt;form class=&quot;auth-form&quot; id=&quot;registerForm&quot; novalidate style=&quot;display:none;&quot;&gt;
+                        &lt;div class=&quot;field&quot;&gt;
+                            &lt;label class=&quot;field-label&quot; for=&quot;regUser&quot;&gt;用户名&lt;/label&gt;
+                            &lt;input type=&quot;text&quot; id=&quot;regUser&quot; placeholder=&quot;创建用户名&quot;
+                                   autocomplete=&quot;username&quot; spellcheck=&quot;false&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;field&quot;&gt;
+                            &lt;label class=&quot;field-label&quot; for=&quot;regPwd&quot;&gt;密码&lt;/label&gt;
+                            &lt;input type=&quot;password&quot; id=&quot;regPwd&quot; placeholder=&quot;创建密码&quot;
+                                   autocomplete=&quot;new-password&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;field&quot;&gt;
+                            &lt;label class=&quot;field-label&quot; for=&quot;regPwd2&quot;&gt;确认密码&lt;/label&gt;
+                            &lt;input type=&quot;password&quot; id=&quot;regPwd2&quot; placeholder=&quot;再次输入密码&quot;
+                                   autocomplete=&quot;new-password&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;p class=&quot;auth-msg&quot; id=&quot;msg2&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+                        &lt;button class=&quot;game-button auth-submit&quot; type=&quot;submit&quot;&gt;注 册&lt;/button&gt;
+                    &lt;/form&gt;
+
+                    &lt;p class=&quot;auth-note&quot;&gt;
+                        账号保存在本机浏览器中，换设备或清理浏览器数据后需要重新注册。
+                        本站仅用于展示，请勿使用真实常用密码。
+                    &lt;/p&gt;
+
+                &lt;/div&gt;
+            &lt;/section&gt;
+
+        &lt;/div&gt;
+    &lt;/main&gt;
+
+    &lt;script src=&quot;js/bg.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/login.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/passkey.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</section>
+<section id="f02">
+  <div class="sec-head">
+    <h2><span class="num">02</span>index.html</h2>
+    <button class="copy" type="button" data-t="f02">复制代码</button>
+  </div>
+  <p class="meta">首页（红光标题 + 开始探索 / 关于 / 退出） ｜ 92 行 ｜ 3,512 字符</p>
+  <pre><code id="c-f02">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;上古纪事｜神话人物故事集&lt;/title&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;上古纪事 · 神话人物故事集 —— 一卷神话，六位传奇。走进哪吒、孙悟空、杨戬、嫦娥、夸父、精卫的故事。&quot;&gt;
+
+    &lt;!-- 登录门禁：未登录则先跳转 login.html --&gt;
+    &lt;script src=&quot;js/auth.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;if (window.MythoAuth) { window.MythoAuth.require(); }&lt;/script&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;canvas id=&quot;bgCanvas&quot;&gt;&lt;/canvas&gt;
+
+    &lt;main class=&quot;page home&quot;&gt;
+
+        &lt;!-- 朱砂印章（装饰） --&gt;
+        &lt;div class=&quot;seal&quot; aria-hidden=&quot;true&quot;&gt;神话&lt;br&gt;人物志&lt;/div&gt;
+
+        &lt;p class=&quot;eyebrow&quot;&gt;上古纪事&lt;br&gt;神魔流章&lt;/p&gt;
+        &lt;h1 class=&quot;main-title&quot;&gt;神话人物故事集&lt;/h1&gt;
+        &lt;p class=&quot;subtitle&quot;&gt;一卷神话 · 书写传奇&lt;/p&gt;
+
+        &lt;div class=&quot;divider&quot; aria-hidden=&quot;true&quot;&gt;
+            &lt;i&gt;&lt;/i&gt;&lt;span&gt;❖&lt;/span&gt;&lt;i&gt;&lt;/i&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;button-group&quot;&gt;
+            &lt;button class=&quot;game-button&quot; id=&quot;startBtn&quot; type=&quot;button&quot;&gt;开始探索&lt;/button&gt;
+            &lt;button class=&quot;game-button ghost&quot; id=&quot;aboutBtn&quot; type=&quot;button&quot;&gt;关于本志&lt;/button&gt;
+            &lt;button class=&quot;game-button quiet&quot; id=&quot;exitBtn&quot; type=&quot;button&quot;&gt;退出&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 六位人物剪影，点击直达 --&gt;
+        &lt;div class=&quot;roster-strip&quot; aria-label=&quot;人物快捷入口&quot;&gt;
+            &lt;img src=&quot;assets/avatar-nezha.svg&quot;   data-id=&quot;nezha&quot;   alt=&quot;哪吒&quot;&gt;
+            &lt;img src=&quot;assets/avatar-wukong.svg&quot;  data-id=&quot;wukong&quot;  alt=&quot;孙悟空&quot;&gt;
+            &lt;img src=&quot;assets/avatar-erlang.svg&quot;  data-id=&quot;erlang&quot;  alt=&quot;杨戬&quot;&gt;
+            &lt;img src=&quot;assets/avatar-change.svg&quot;  data-id=&quot;change&quot;  alt=&quot;嫦娥&quot;&gt;
+            &lt;img src=&quot;assets/avatar-kuafu.svg&quot;   data-id=&quot;kuafu&quot;   alt=&quot;夸父&quot;&gt;
+            &lt;img src=&quot;assets/avatar-jingwei.svg&quot; data-id=&quot;jingwei&quot; alt=&quot;精卫&quot;&gt;
+        &lt;/div&gt;
+
+        &lt;p class=&quot;home-foot&quot;&gt;
+            &lt;span class=&quot;foot-who&quot; id=&quot;whoami&quot;&gt;&lt;/span&gt;
+            建议开启声音 · 可听到人物逐字朗读
+            &lt;span class=&quot;foot-sep&quot; aria-hidden=&quot;true&quot;&gt;|&lt;/span&gt;
+            &lt;button class=&quot;foot-link&quot; id=&quot;logoutBtn&quot; type=&quot;button&quot;&gt;退出登录&lt;/button&gt;
+        &lt;/p&gt;
+    &lt;/main&gt;
+
+    &lt;!-- 关于本志 --&gt;
+    &lt;div class=&quot;overlay&quot; id=&quot;aboutOverlay&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-label=&quot;关于本志&quot;&gt;
+        &lt;div class=&quot;dialog&quot;&gt;
+            &lt;button class=&quot;close-x&quot; data-close type=&quot;button&quot; aria-label=&quot;关闭&quot;&gt;×&lt;/button&gt;
+            &lt;h3&gt;关于本志&lt;/h3&gt;
+            &lt;p&gt;「上古纪事 · 神话人物故事集」收录了六位中国上古神话与传说中的角色：哪吒、孙悟空、杨戬、嫦娥、夸父、精卫。&lt;/p&gt;
+            &lt;p&gt;浏览顺序：登录 → 首页 →「开始探索」进入人物选择 → 人物详情 → 人物对话。每位人物配有专属台词与场景旁白，文字逐字浮现，并可同步语音朗读。&lt;/p&gt;
+            &lt;p class=&quot;hint&quot;&gt;
+                操作提示：&lt;br&gt;
+                · 点击左侧名录切换人物&lt;br&gt;
+                · 「下一句 / 上一句」翻动台词，末句再点即跳下一位&lt;br&gt;
+                · 快捷键 ← → 翻页，空格 下一句，R 重播&lt;br&gt;
+                · 「自动连播」可让人物自己说下去
+            &lt;/p&gt;
+            &lt;div class=&quot;dialog-actions&quot;&gt;
+                &lt;button class=&quot;btn-mini primary&quot; data-close type=&quot;button&quot;&gt;知道了&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 退出确认 --&gt;
+    &lt;div class=&quot;overlay&quot; id=&quot;exitOverlay&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-label=&quot;退出确认&quot;&gt;
+        &lt;div class=&quot;dialog&quot;&gt;
+            &lt;button class=&quot;close-x&quot; data-close type=&quot;button&quot; aria-label=&quot;关闭&quot;&gt;×&lt;/button&gt;
+            &lt;h3&gt;确定要退出吗？&lt;/h3&gt;
+            &lt;p&gt;六位人物还在等你，要不……再多留一会儿？&lt;/p&gt;
+            &lt;div class=&quot;dialog-actions&quot;&gt;
+                &lt;button class=&quot;btn-mini&quot; data-close type=&quot;button&quot;&gt;再逛逛&lt;/button&gt;
+                &lt;button class=&quot;btn-mini primary&quot; id=&quot;exitConfirm&quot; type=&quot;button&quot;&gt;退出&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script src=&quot;js/bg.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/index.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</section>
+<section id="f03">
+  <div class="sec-head">
+    <h2><span class="num">03</span>characters.html</h2>
+    <button class="copy" type="button" data-t="f03">复制代码</button>
+  </div>
+  <p class="meta">人物馆（毛玻璃卡片网格，六位人物入口） ｜ 64 行 ｜ 2,140 字符</p>
+  <pre><code id="c-f03">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;人物馆｜上古纪事&lt;/title&gt;
+
+    &lt;!-- 登录门禁：未登录则先跳转 login.html --&gt;
+    &lt;script src=&quot;js/auth.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;if (window.MythoAuth) { window.MythoAuth.require(); }&lt;/script&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/characters.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;userInfo&quot;&gt;&lt;/div&gt;
+&lt;button class=&quot;logout-btn&quot; onclick=&quot;logout()&quot;&gt;退出登录&lt;/button&gt;
+
+&lt;div class=&quot;header&quot;&gt;
+    &lt;h1&gt;上古纪事&lt;/h1&gt;
+    &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+    &lt;p class=&quot;subtitle&quot;&gt;一卷神话 · 六位传奇&lt;br&gt;凭一纸名姓，入这一卷山海&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- 六个人物卡片 --&gt;
+&lt;div class=&quot;character-grid&quot;&gt;
+    &lt;div class=&quot;char-card&quot; tabindex=&quot;0&quot; onclick=&quot;location.href=&#x27;nezha.html&#x27;&quot;&gt;
+        &lt;div class=&quot;char-avatar&quot;&gt;吒&lt;/div&gt;
+        &lt;div class=&quot;char-name&quot;&gt;哪吒&lt;/div&gt;
+        &lt;div class=&quot;char-tag&quot;&gt;莲花化身 · 少年战神&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;char-card&quot; tabindex=&quot;0&quot; onclick=&quot;location.href=&#x27;wukong.html&#x27;&quot;&gt;
+        &lt;div class=&quot;char-avatar&quot;&gt;悟&lt;/div&gt;
+        &lt;div class=&quot;char-name&quot;&gt;孙悟空&lt;/div&gt;
+        &lt;div class=&quot;char-tag&quot;&gt;齐天大圣 · 斗战胜佛&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;char-card&quot; tabindex=&quot;0&quot; onclick=&quot;location.href=&#x27;yangjian.html&#x27;&quot;&gt;
+        &lt;div class=&quot;char-avatar&quot;&gt;戬&lt;/div&gt;
+        &lt;div class=&quot;char-name&quot;&gt;杨戬&lt;/div&gt;
+        &lt;div class=&quot;char-tag&quot;&gt;二郎真君 · 天眼通幽&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;char-card&quot; tabindex=&quot;0&quot; onclick=&quot;location.href=&#x27;change.html&#x27;&quot;&gt;
+        &lt;div class=&quot;char-avatar&quot;&gt;娥&lt;/div&gt;
+        &lt;div class=&quot;char-name&quot;&gt;嫦娥&lt;/div&gt;
+        &lt;div class=&quot;char-tag&quot;&gt;月宫仙子 · 清辉千年&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;char-card&quot; tabindex=&quot;0&quot; onclick=&quot;location.href=&#x27;kuafu.html&#x27;&quot;&gt;
+        &lt;div class=&quot;char-avatar&quot;&gt;夸&lt;/div&gt;
+        &lt;div class=&quot;char-name&quot;&gt;夸父&lt;/div&gt;
+        &lt;div class=&quot;char-tag&quot;&gt;逐日巨人 · 志在光明&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;char-card&quot; tabindex=&quot;0&quot; onclick=&quot;location.href=&#x27;jingwei.html&#x27;&quot;&gt;
+        &lt;div class=&quot;char-avatar is-two&quot;&gt;精卫&lt;/div&gt;
+        &lt;div class=&quot;char-name&quot;&gt;精卫&lt;/div&gt;
+        &lt;div class=&quot;char-tag&quot;&gt;衔石填海 · 执念不渝&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p class=&quot;footer-tip&quot;&gt;✦ 点击人物，开启专属故事 ✦&lt;/p&gt;
+&lt;a class=&quot;back-home&quot; href=&quot;index.html&quot;&gt;← 返回首页&lt;/a&gt;
+
+&lt;script src=&quot;js/select.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</section>
+<section id="f04">
+  <div class="sec-head">
+    <h2><span class="num">04</span>nezha.html</h2>
+    <button class="copy" type="button" data-t="f04">复制代码</button>
+  </div>
+  <p class="meta">故事页 · 哪吒 ｜ 43 行 ｜ 1,253 字符</p>
+  <pre><code id="c-f04">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;哪吒｜上古纪事&lt;/title&gt;
+
+    &lt;!-- 登录门禁：未登录则先跳转 login.html --&gt;
+    &lt;script src=&quot;js/auth.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;if (window.MythoAuth) { window.MythoAuth.require(); }&lt;/script&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/tale.css&quot;&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-nezha&quot; data-char=&quot;nezha&quot; data-story=&quot;nezha&quot;&gt;
+
+&lt;button class=&quot;back&quot; onclick=&quot;taleGoBack()&quot;&gt;← 返回人物馆&lt;/button&gt;
+
+&lt;div class=&quot;avatar-box&quot;&gt;
+    &lt;img src=&quot;assets/avatars/nezha.jpg&quot; alt=&quot;哪吒头像&quot; data-fallback=&quot;assets/avatar-nezha.svg&quot;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;upload-area&quot;&gt;
+    &lt;label for=&quot;avatarUpload&quot;&gt;更换头像&lt;/label&gt;
+    &lt;input type=&quot;file&quot; id=&quot;avatarUpload&quot; accept=&quot;image/*&quot;&gt;
+&lt;/div&gt;
+
+&lt;h1&gt;哪吒&lt;/h1&gt;
+&lt;p class=&quot;char-subtitle&quot;&gt;莲花化身 · 少年战神&lt;/p&gt;
+&lt;p class=&quot;skip-tip&quot;&gt;点击页面任意处可跳过逐字动画&lt;/p&gt;
+&lt;div class=&quot;box&quot; id=&quot;storyBox&quot;&gt;&lt;/div&gt;
+
+&lt;!-- 读完后的交互弹窗 --&gt;
+&lt;div class=&quot;mask&quot; id=&quot;mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;dialog&quot; id=&quot;dialog&quot;&gt;
+    &lt;p&gt;故事已读完，你想？&lt;/p&gt;
+    &lt;button onclick=&quot;taleGoBack()&quot;&gt;返回人物馆&lt;/button&gt;
+    &lt;button onclick=&quot;restartStory()&quot;&gt;重读故事&lt;/button&gt;
+    &lt;button class=&quot;ghost&quot; id=&quot;talkBtn&quot;&gt;进入人物对话&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;js/tales.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/tale.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</section>
+<section id="f05">
+  <div class="sec-head">
+    <h2><span class="num">05</span>wukong.html</h2>
+    <button class="copy" type="button" data-t="f05">复制代码</button>
+  </div>
+  <p class="meta">故事页 · 孙悟空 ｜ 43 行 ｜ 1,261 字符</p>
+  <pre><code id="c-f05">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;孙悟空｜上古纪事&lt;/title&gt;
+
+    &lt;!-- 登录门禁：未登录则先跳转 login.html --&gt;
+    &lt;script src=&quot;js/auth.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;if (window.MythoAuth) { window.MythoAuth.require(); }&lt;/script&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/tale.css&quot;&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-wukong&quot; data-char=&quot;wukong&quot; data-story=&quot;wukong&quot;&gt;
+
+&lt;button class=&quot;back&quot; onclick=&quot;taleGoBack()&quot;&gt;← 返回人物馆&lt;/button&gt;
+
+&lt;div class=&quot;avatar-box&quot;&gt;
+    &lt;img src=&quot;assets/avatars/wukong.jpg&quot; alt=&quot;孙悟空头像&quot; data-fallback=&quot;assets/avatar-wukong.svg&quot;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;upload-area&quot;&gt;
+    &lt;label for=&quot;avatarUpload&quot;&gt;更换头像&lt;/label&gt;
+    &lt;input type=&quot;file&quot; id=&quot;avatarUpload&quot; accept=&quot;image/*&quot;&gt;
+&lt;/div&gt;
+
+&lt;h1&gt;孙悟空&lt;/h1&gt;
+&lt;p class=&quot;char-subtitle&quot;&gt;齐天大圣 · 斗战胜佛&lt;/p&gt;
+&lt;p class=&quot;skip-tip&quot;&gt;点击页面任意处可跳过逐字动画&lt;/p&gt;
+&lt;div class=&quot;box&quot; id=&quot;storyBox&quot;&gt;&lt;/div&gt;
+
+&lt;!-- 读完后的交互弹窗 --&gt;
+&lt;div class=&quot;mask&quot; id=&quot;mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;dialog&quot; id=&quot;dialog&quot;&gt;
+    &lt;p&gt;故事已读完，你想？&lt;/p&gt;
+    &lt;button onclick=&quot;taleGoBack()&quot;&gt;返回人物馆&lt;/button&gt;
+    &lt;button onclick=&quot;restartStory()&quot;&gt;重读故事&lt;/button&gt;
+    &lt;button class=&quot;ghost&quot; id=&quot;talkBtn&quot;&gt;进入人物对话&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;js/tales.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/tale.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</section>
+<section id="f06">
+  <div class="sec-head">
+    <h2><span class="num">06</span>yangjian.html</h2>
+    <button class="copy" type="button" data-t="f06">复制代码</button>
+  </div>
+  <p class="meta">故事页 · 杨戬 ｜ 43 行 ｜ 1,264 字符</p>
+  <pre><code id="c-f06">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;杨戬｜上古纪事&lt;/title&gt;
+
+    &lt;!-- 登录门禁：未登录则先跳转 login.html --&gt;
+    &lt;script src=&quot;js/auth.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;if (window.MythoAuth) { window.MythoAuth.require(); }&lt;/script&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/tale.css&quot;&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-yangjian&quot; data-char=&quot;yangjian&quot; data-story=&quot;erlang&quot;&gt;
+
+&lt;button class=&quot;back&quot; onclick=&quot;taleGoBack()&quot;&gt;← 返回人物馆&lt;/button&gt;
+
+&lt;div class=&quot;avatar-box&quot;&gt;
+    &lt;img src=&quot;assets/avatars/yangjian.jpg&quot; alt=&quot;杨戬头像&quot; data-fallback=&quot;assets/avatar-erlang.svg&quot;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;upload-area&quot;&gt;
+    &lt;label for=&quot;avatarUpload&quot;&gt;更换头像&lt;/label&gt;
+    &lt;input type=&quot;file&quot; id=&quot;avatarUpload&quot; accept=&quot;image/*&quot;&gt;
+&lt;/div&gt;
+
+&lt;h1&gt;杨戬&lt;/h1&gt;
+&lt;p class=&quot;char-subtitle&quot;&gt;二郎真君 · 天眼通幽&lt;/p&gt;
+&lt;p class=&quot;skip-tip&quot;&gt;点击页面任意处可跳过逐字动画&lt;/p&gt;
+&lt;div class=&quot;box&quot; id=&quot;storyBox&quot;&gt;&lt;/div&gt;
+
+&lt;!-- 读完后的交互弹窗 --&gt;
+&lt;div class=&quot;mask&quot; id=&quot;mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;dialog&quot; id=&quot;dialog&quot;&gt;
+    &lt;p&gt;故事已读完，你想？&lt;/p&gt;
+    &lt;button onclick=&quot;taleGoBack()&quot;&gt;返回人物馆&lt;/button&gt;
+    &lt;button onclick=&quot;restartStory()&quot;&gt;重读故事&lt;/button&gt;
+    &lt;button class=&quot;ghost&quot; id=&quot;talkBtn&quot;&gt;进入人物对话&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;js/tales.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/tale.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</section>
+<section id="f07">
+  <div class="sec-head">
+    <h2><span class="num">07</span>change.html</h2>
+    <button class="copy" type="button" data-t="f07">复制代码</button>
+  </div>
+  <p class="meta">故事页 · 嫦娥 ｜ 43 行 ｜ 1,258 字符</p>
+  <pre><code id="c-f07">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;嫦娥｜上古纪事&lt;/title&gt;
+
+    &lt;!-- 登录门禁：未登录则先跳转 login.html --&gt;
+    &lt;script src=&quot;js/auth.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;if (window.MythoAuth) { window.MythoAuth.require(); }&lt;/script&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/tale.css&quot;&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-change&quot; data-char=&quot;change&quot; data-story=&quot;change&quot;&gt;
+
+&lt;button class=&quot;back&quot; onclick=&quot;taleGoBack()&quot;&gt;← 返回人物馆&lt;/button&gt;
+
+&lt;div class=&quot;avatar-box&quot;&gt;
+    &lt;img src=&quot;assets/avatars/change.jpg&quot; alt=&quot;嫦娥头像&quot; data-fallback=&quot;assets/avatar-change.svg&quot;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;upload-area&quot;&gt;
+    &lt;label for=&quot;avatarUpload&quot;&gt;更换头像&lt;/label&gt;
+    &lt;input type=&quot;file&quot; id=&quot;avatarUpload&quot; accept=&quot;image/*&quot;&gt;
+&lt;/div&gt;
+
+&lt;h1&gt;嫦娥&lt;/h1&gt;
+&lt;p class=&quot;char-subtitle&quot;&gt;月宫仙子 · 清辉千年&lt;/p&gt;
+&lt;p class=&quot;skip-tip&quot;&gt;点击页面任意处可跳过逐字动画&lt;/p&gt;
+&lt;div class=&quot;box&quot; id=&quot;storyBox&quot;&gt;&lt;/div&gt;
+
+&lt;!-- 读完后的交互弹窗 --&gt;
+&lt;div class=&quot;mask&quot; id=&quot;mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;dialog&quot; id=&quot;dialog&quot;&gt;
+    &lt;p&gt;故事已读完，你想？&lt;/p&gt;
+    &lt;button onclick=&quot;taleGoBack()&quot;&gt;返回人物馆&lt;/button&gt;
+    &lt;button onclick=&quot;restartStory()&quot;&gt;重读故事&lt;/button&gt;
+    &lt;button class=&quot;ghost&quot; id=&quot;talkBtn&quot;&gt;进入人物对话&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;js/tales.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/tale.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</section>
+<section id="f08">
+  <div class="sec-head">
+    <h2><span class="num">08</span>kuafu.html</h2>
+    <button class="copy" type="button" data-t="f08">复制代码</button>
+  </div>
+  <p class="meta">故事页 · 夸父 ｜ 43 行 ｜ 1,253 字符</p>
+  <pre><code id="c-f08">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;夸父｜上古纪事&lt;/title&gt;
+
+    &lt;!-- 登录门禁：未登录则先跳转 login.html --&gt;
+    &lt;script src=&quot;js/auth.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;if (window.MythoAuth) { window.MythoAuth.require(); }&lt;/script&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/tale.css&quot;&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-kuafu&quot; data-char=&quot;kuafu&quot; data-story=&quot;kuafu&quot;&gt;
+
+&lt;button class=&quot;back&quot; onclick=&quot;taleGoBack()&quot;&gt;← 返回人物馆&lt;/button&gt;
+
+&lt;div class=&quot;avatar-box&quot;&gt;
+    &lt;img src=&quot;assets/avatars/kuafu.jpg&quot; alt=&quot;夸父头像&quot; data-fallback=&quot;assets/avatar-kuafu.svg&quot;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;upload-area&quot;&gt;
+    &lt;label for=&quot;avatarUpload&quot;&gt;更换头像&lt;/label&gt;
+    &lt;input type=&quot;file&quot; id=&quot;avatarUpload&quot; accept=&quot;image/*&quot;&gt;
+&lt;/div&gt;
+
+&lt;h1&gt;夸父&lt;/h1&gt;
+&lt;p class=&quot;char-subtitle&quot;&gt;逐日巨人 · 志在光明&lt;/p&gt;
+&lt;p class=&quot;skip-tip&quot;&gt;点击页面任意处可跳过逐字动画&lt;/p&gt;
+&lt;div class=&quot;box&quot; id=&quot;storyBox&quot;&gt;&lt;/div&gt;
+
+&lt;!-- 读完后的交互弹窗 --&gt;
+&lt;div class=&quot;mask&quot; id=&quot;mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;dialog&quot; id=&quot;dialog&quot;&gt;
+    &lt;p&gt;故事已读完，你想？&lt;/p&gt;
+    &lt;button onclick=&quot;taleGoBack()&quot;&gt;返回人物馆&lt;/button&gt;
+    &lt;button onclick=&quot;restartStory()&quot;&gt;重读故事&lt;/button&gt;
+    &lt;button class=&quot;ghost&quot; id=&quot;talkBtn&quot;&gt;进入人物对话&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;js/tales.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/tale.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</section>
+<section id="f09">
+  <div class="sec-head">
+    <h2><span class="num">09</span>jingwei.html</h2>
+    <button class="copy" type="button" data-t="f09">复制代码</button>
+  </div>
+  <p class="meta">故事页 · 精卫 ｜ 43 行 ｜ 1,263 字符</p>
+  <pre><code id="c-f09">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;精卫｜上古纪事&lt;/title&gt;
+
+    &lt;!-- 登录门禁：未登录则先跳转 login.html --&gt;
+    &lt;script src=&quot;js/auth.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;if (window.MythoAuth) { window.MythoAuth.require(); }&lt;/script&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/tale.css&quot;&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-jingwei&quot; data-char=&quot;jingwei&quot; data-story=&quot;jingwei&quot;&gt;
+
+&lt;button class=&quot;back&quot; onclick=&quot;taleGoBack()&quot;&gt;← 返回人物馆&lt;/button&gt;
+
+&lt;div class=&quot;avatar-box&quot;&gt;
+    &lt;img src=&quot;assets/avatars/jingwei.jpg&quot; alt=&quot;精卫头像&quot; data-fallback=&quot;assets/avatar-jingwei.svg&quot;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;upload-area&quot;&gt;
+    &lt;label for=&quot;avatarUpload&quot;&gt;更换头像&lt;/label&gt;
+    &lt;input type=&quot;file&quot; id=&quot;avatarUpload&quot; accept=&quot;image/*&quot;&gt;
+&lt;/div&gt;
+
+&lt;h1&gt;精卫&lt;/h1&gt;
+&lt;p class=&quot;char-subtitle&quot;&gt;衔石填海 · 执念不渝&lt;/p&gt;
+&lt;p class=&quot;skip-tip&quot;&gt;点击页面任意处可跳过逐字动画&lt;/p&gt;
+&lt;div class=&quot;box&quot; id=&quot;storyBox&quot;&gt;&lt;/div&gt;
+
+&lt;!-- 读完后的交互弹窗 --&gt;
+&lt;div class=&quot;mask&quot; id=&quot;mask&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;dialog&quot; id=&quot;dialog&quot;&gt;
+    &lt;p&gt;故事已读完，你想？&lt;/p&gt;
+    &lt;button onclick=&quot;taleGoBack()&quot;&gt;返回人物馆&lt;/button&gt;
+    &lt;button onclick=&quot;restartStory()&quot;&gt;重读故事&lt;/button&gt;
+    &lt;button class=&quot;ghost&quot; id=&quot;talkBtn&quot;&gt;进入人物对话&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;js/tales.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/tale.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</section>
+<section id="f10">
+  <div class="sec-head">
+    <h2><span class="num">10</span>story.html</h2>
+    <button class="copy" type="button" data-t="f10">复制代码</button>
+  </div>
+  <p class="meta">人物对话页（逐字打字机 + 语音朗读） ｜ 86 行 ｜ 9,631 字符</p>
+  <pre><code id="c-f10">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot; data-page-node-id=&quot;XIttvLLeeol3d27EzsSSJL&quot;&gt;&lt;head data-page-node-id=&quot;jr9zywonEK37ckK3nFtAWz&quot;&gt;
+    &lt;meta charset=&quot;UTF-8&quot; data-page-node-id=&quot;H3mhBuLvo44zFQIg0L2uZB&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; data-page-node-id=&quot;jyqPl0C2OXOHU45E26TKVk&quot;&gt;
+    &lt;title data-page-node-id=&quot;0DHqFBdow0VUvQN3ozvUG4&quot;&gt;人物对话｜上古纪事&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot; data-page-node-id=&quot;Olx9g41Nou6sHQ11TmIA26&quot;&gt;
+
+    &lt;!-- 登录门禁：未登录则先跳转 login.html --&gt;
+    &lt;script src=&quot;js/auth.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;if (window.MythoAuth) { window.MythoAuth.require(); }&lt;/script&gt;
+
+&lt;style id=&quot;__dm_no_drag_style__&quot;&gt;* { -webkit-user-drag: none !important; }&lt;/style&gt;&lt;style id=&quot;__dm_bindable_badge_style__&quot;&gt;[data-sp-bindable=&quot;database&quot;]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable=&quot;database&quot;] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable=&quot;database&quot;]{transition:none !important;animation:none !important;}&lt;/style&gt;&lt;/head&gt;
+&lt;body data-page-node-id=&quot;JeuvrnaJE0eTZOgghGK1IK&quot; style=&quot;&quot;&gt;
+
+    &lt;canvas id=&quot;bgCanvas&quot; width=&quot;723&quot; height=&quot;842&quot; style=&quot;width: 579px; height: 674px;&quot; data-page-node-id=&quot;cAbp0wYpNL6mYgbQuQGjaj&quot;&gt;&lt;/canvas&gt;
+
+    &lt;div class=&quot;page&quot; data-page-node-id=&quot;XYuiacmgY41sTG8qgiuGHn&quot;&gt;
+
+        &lt;!-- 顶栏 --&gt;
+        &lt;header class=&quot;topbar&quot; data-page-node-id=&quot;ODuCUGWBBD8vukzaJYg8Fs&quot;&gt;
+            &lt;a class=&quot;back-link&quot; href=&quot;characters.html&quot; data-page-node-id=&quot;saTEMDBmISEn61XwF3xb29&quot;&gt;← 人物选择&lt;/a&gt;
+            &lt;span class=&quot;topbar-title&quot; data-page-node-id=&quot;TorJUTIZpvUBKonNooyddP&quot; style=&quot;white-space: pre-wrap;&quot;&gt;上古纪事&lt;/span&gt;
+            &lt;span class=&quot;topbar-spacer&quot; data-page-node-id=&quot;zSKhbFV5aqAr2ZdLMADcIv&quot;&gt;&lt;/span&gt;
+            &lt;button class=&quot;voice-toggle&quot; id=&quot;speedBtn&quot; type=&quot;button&quot; title=&quot;切换朗读语速&quot; data-page-node-id=&quot;rT0TGZVTB9OzPbeH9xqAsU&quot;&gt;语速 · 中&lt;/button&gt;
+            &lt;button class=&quot;voice-toggle on&quot; id=&quot;voiceBtn&quot; type=&quot;button&quot; title=&quot;语音朗读开关&quot; data-page-node-id=&quot;InIFytkpYGDfORJJCLtEVC&quot;&gt;
+                &lt;span class=&quot;ico&quot; data-page-node-id=&quot;NT2lDGWE8a7Ymx6tpihrNp&quot;&gt;🔊&lt;/span&gt;&lt;span class=&quot;label&quot; data-page-node-id=&quot;Jz7HafiBpUFIHG2xXBJXdO&quot;&gt;语音朗读 · 开&lt;/span&gt;
+            &lt;/button&gt;
+        &lt;/header&gt;
+
+        &lt;main class=&quot;story-layout&quot; data-page-node-id=&quot;dYgCFGFEVACalPcvq9Pf5z&quot;&gt;
+
+            &lt;!-- 左：人物名录 --&gt;
+            &lt;aside class=&quot;roster&quot; id=&quot;roster&quot; aria-label=&quot;人物名录&quot; data-page-node-id=&quot;4GQTszkbVLMCgKSqTKNgjE&quot;&gt;&lt;div class=&quot;roster-head&quot; data-page-node-id=&quot;rCbz6WEQ3RViwHf5XrHYs2&quot;&gt;人 物 名 录&lt;/div&gt;&lt;button class=&quot;roster-card active&quot; type=&quot;button&quot; data-index=&quot;0&quot; data-page-node-id=&quot;ntBiXAVZH5R9HKDz9BIUqn&quot;&gt;&lt;img src=&quot;assets/avatar-nezha.svg&quot; alt=&quot;哪吒&quot; data-page-node-id=&quot;kNZlvwbFiGQRQFT6EsIoRF&quot;&gt;&lt;span class=&quot;roster-meta&quot; data-page-node-id=&quot;NbFDDeX93TbvRVcPJ7rSIo&quot;&gt;&lt;span class=&quot;roster-name&quot; data-page-node-id=&quot;mQnsiESdWD9Q7eVAAnYcZF&quot;&gt;哪吒&lt;/span&gt;&lt;span class=&quot;roster-title&quot; data-page-node-id=&quot;eT7iPzyPmJ8bB33yvv7id3&quot;&gt;三坛海会大神&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;button class=&quot;roster-card&quot; type=&quot;button&quot; data-index=&quot;1&quot; data-page-node-id=&quot;d3mBEN0pA0GSJUbeJaKFby&quot;&gt;&lt;img src=&quot;assets/avatar-wukong.svg&quot; alt=&quot;孙悟空&quot; data-page-node-id=&quot;0im81vk6e4ijESrc7kgOcM&quot;&gt;&lt;span class=&quot;roster-meta&quot; data-page-node-id=&quot;OYE4ptK7qDtKTWTeGCRrtc&quot;&gt;&lt;span class=&quot;roster-name&quot; data-page-node-id=&quot;Mim7VE4eoBcCfyCkhGJ2gn&quot;&gt;孙悟空&lt;/span&gt;&lt;span class=&quot;roster-title&quot; data-page-node-id=&quot;tKvGKWNg1qUn0f3aL1LY7H&quot;&gt;齐天大圣&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;button class=&quot;roster-card&quot; type=&quot;button&quot; data-index=&quot;2&quot; data-page-node-id=&quot;L4V98QcxoO19cTQlD3VXeS&quot;&gt;&lt;img src=&quot;assets/avatar-erlang.svg&quot; alt=&quot;二郎神&quot; data-page-node-id=&quot;lqy5Q7rxDLDMipPrwKwbkT&quot;&gt;&lt;span class=&quot;roster-meta&quot; data-page-node-id=&quot;hrf5YFYIQTWIvhhxwUWVLB&quot;&gt;&lt;span class=&quot;roster-name&quot; data-page-node-id=&quot;ngMNrwZzMz0Bc6Ij0cSXdf&quot;&gt;二郎神&lt;/span&gt;&lt;span class=&quot;roster-title&quot; data-page-node-id=&quot;wm74rP5vaQQkCSau9xLlwg&quot;&gt;清源妙道真君&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;button class=&quot;roster-card&quot; type=&quot;button&quot; data-index=&quot;3&quot; data-page-node-id=&quot;Dj7qf7nNq0FwNXOvvhHf68&quot;&gt;&lt;img src=&quot;assets/avatar-change.svg&quot; alt=&quot;嫦娥&quot; data-page-node-id=&quot;AxY14QeHSjwCKA5lfMrL2S&quot;&gt;&lt;span class=&quot;roster-meta&quot; data-page-node-id=&quot;YuqgG2G52AUybZoI9d3Z5s&quot;&gt;&lt;span class=&quot;roster-name&quot; data-page-node-id=&quot;08Ywytsl2ikxUWbzDfb3Fn&quot;&gt;嫦娥&lt;/span&gt;&lt;span class=&quot;roster-title&quot; data-page-node-id=&quot;RZRxslsPXdRoKP7jKftbmG&quot;&gt;月宫仙子&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;button class=&quot;roster-card&quot; type=&quot;button&quot; data-index=&quot;4&quot; data-page-node-id=&quot;EnxzLtAKo6VYgFQAcCOAIV&quot;&gt;&lt;img src=&quot;assets/avatar-kuafu.svg&quot; alt=&quot;夸父&quot; data-page-node-id=&quot;APiDwVhllZixIo7ApG7CA9&quot;&gt;&lt;span class=&quot;roster-meta&quot; data-page-node-id=&quot;pIGY0GXd0HqjXb5cGYVvMJ&quot;&gt;&lt;span class=&quot;roster-name&quot; data-page-node-id=&quot;NQ9TEL7MvvSFRzW00pUHRe&quot;&gt;夸父&lt;/span&gt;&lt;span class=&quot;roster-title&quot; data-page-node-id=&quot;x641NK1wmNNuQmty3KqCJG&quot;&gt;逐日者&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;button class=&quot;roster-card&quot; type=&quot;button&quot; data-index=&quot;5&quot; data-page-node-id=&quot;fISaZ0JCWJScrHH9y8mx2W&quot;&gt;&lt;img src=&quot;assets/avatar-jingwei.svg&quot; alt=&quot;精卫&quot; data-page-node-id=&quot;hyyQmsRL39GJ3L18GcpAZd&quot;&gt;&lt;span class=&quot;roster-meta&quot; data-page-node-id=&quot;xvbrSdE3nabDvotJGAOmoO&quot;&gt;&lt;span class=&quot;roster-name&quot; data-page-node-id=&quot;luolSi9me6tNXjsv00haM9&quot;&gt;精卫&lt;/span&gt;&lt;span class=&quot;roster-title&quot; data-page-node-id=&quot;MGSnfjEtsy7DsxsRhqDl9e&quot;&gt;炎帝之女&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/aside&gt;
+
+            &lt;!-- 右：对话舞台 --&gt;
+            &lt;section class=&quot;stage&quot; data-page-node-id=&quot;3wscdET2Bi9B254AWmchQ3&quot;&gt;
+
+                &lt;div class=&quot;stage-top&quot; data-page-node-id=&quot;8ANyvafd4FU3AG8FWUpvjb&quot;&gt;
+                    &lt;div class=&quot;avatar-wrap&quot; style=&quot;--char-color: #ff8a5c; filter: drop-shadow(rgba(255, 138, 92, 0.42) 0px 0px 22px);&quot; data-page-node-id=&quot;AztluezF6fDYE9Lds86Avl&quot;&gt;
+                        &lt;img id=&quot;stageAvatar&quot; src=&quot;assets/avatar-nezha.svg&quot; alt=&quot;哪吒&quot; style=&quot;&quot; data-page-node-id=&quot;VdIZDWYUQEKX9GbOgUBllO&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;stage-id&quot; data-page-node-id=&quot;1eAznTRnYUYksQXFeIyBlD&quot;&gt;
+                        &lt;h1 class=&quot;stage-name&quot; id=&quot;stageName&quot; data-page-node-id=&quot;TQXakIdMFeEiVCesMvuBjH&quot;&gt;哪吒&lt;/h1&gt;
+                        &lt;p class=&quot;stage-title&quot; id=&quot;stageTitle&quot; data-page-node-id=&quot;VE3lDg7tkX8eGWx6UuPMHD&quot;&gt;三坛海会大神&lt;/p&gt;
+                        &lt;div class=&quot;tag-row&quot; id=&quot;tagRow&quot; data-page-node-id=&quot;DbW3IUg81IKEeJPPaHWqyo&quot;&gt;&lt;span class=&quot;tag&quot; data-page-node-id=&quot;CkWcd9lsR1rFflauzsJtPc&quot;&gt;莲花重生&lt;/span&gt;&lt;span class=&quot;tag&quot; data-page-node-id=&quot;h7r0jEgFAlAnDFtogKx7PD&quot;&gt;火尖枪&lt;/span&gt;&lt;span class=&quot;tag&quot; data-page-node-id=&quot;DUggDKfzVNHcAVGnPVrwOF&quot;&gt;乾坤圈&lt;/span&gt;&lt;span class=&quot;tag&quot; data-page-node-id=&quot;zYIS4iuTFH7Hb0xwYghYh1&quot;&gt;混天绫&lt;/span&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;p class=&quot;stage-intro&quot; id=&quot;stageIntro&quot; data-page-node-id=&quot;wapUIzQj5ZimFYGvHkImjd&quot;&gt;灵珠子转世，莲花化身。削肉还母、剔骨还父，而后以藕为骨、以荷为肉，重生于火中。&lt;/p&gt;
+
+                &lt;div class=&quot;bubble&quot; data-page-node-id=&quot;phFIRFYZP4ktqfCJMeicKT&quot;&gt;
+                    &lt;div class=&quot;bubble-text&quot; id=&quot;bubbleText&quot; data-page-node-id=&quot;53P42ZPoFceHqzbGCsCdTp&quot;&gt;莲花为身，藕为骨。我从火里生，也从火里长。&lt;/div&gt;
+                    &lt;div class=&quot;bubble-note&quot; id=&quot;bubbleNote&quot; data-page-node-id=&quot;ESpuF7ZRxfuVX4iwolTsfF&quot;&gt;—— 太乙真人以莲藕重塑其身&lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;controls&quot; data-page-node-id=&quot;x7iCel3USXs5ffQZpY1Ozb&quot;&gt;
+                    &lt;button class=&quot;ctrl-btn&quot; id=&quot;prevBtn&quot; type=&quot;button&quot; data-page-node-id=&quot;rdIE98k2JZV05tAi1Q0TqU&quot;&gt;
+                        &lt;span class=&quot;ico&quot; data-page-node-id=&quot;YYQOgJBtIcqNJSYbbidi21&quot;&gt;←&lt;/span&gt;&lt;span class=&quot;label&quot; data-page-node-id=&quot;qer9jt355MyRyTQXOhavu7&quot;&gt;上一句&lt;/span&gt;
+                    &lt;/button&gt;
+                    &lt;button class=&quot;ctrl-btn accent&quot; id=&quot;nextBtn&quot; type=&quot;button&quot; data-page-node-id=&quot;h084CCCZvE4IDbKsSFVEKO&quot;&gt;下一句 →&lt;/button&gt;
+                    &lt;button class=&quot;ctrl-btn&quot; id=&quot;replayBtn&quot; type=&quot;button&quot; data-page-node-id=&quot;ZXCGQ0eXYGwrFqrc1gDrBs&quot;&gt;
+                        &lt;span class=&quot;ico&quot; data-page-node-id=&quot;zyvkVKe6U6e2UHYZUiKLzu&quot;&gt;↻&lt;/span&gt;&lt;span class=&quot;label&quot; data-page-node-id=&quot;9K7BMh5cI3TazJ83rDgvKH&quot;&gt;重播&lt;/span&gt;
+                    &lt;/button&gt;
+                    &lt;button class=&quot;ctrl-btn&quot; id=&quot;autoBtn&quot; type=&quot;button&quot; data-page-node-id=&quot;yrcEFUPOZ2jKP1rvV6hg7P&quot;&gt;
+                        &lt;span class=&quot;ico&quot; data-page-node-id=&quot;lra21sTa8LFymgptInfued&quot;&gt;▶&lt;/span&gt;&lt;span class=&quot;label&quot; data-page-node-id=&quot;qtggAyv5qOdELwyP7KiMfg&quot;&gt;自动连播&lt;/span&gt;
+                    &lt;/button&gt;
+                    &lt;div class=&quot;progress&quot; id=&quot;progress&quot; data-page-node-id=&quot;n8JEiD7OwmhaMPdpbTCVXd&quot;&gt;&lt;button class=&quot;dot&quot; type=&quot;button&quot; title=&quot;第 1 句&quot; data-page-node-id=&quot;UcyE3Thok1V51QM9yWaWrN&quot;&gt;&lt;/button&gt;&lt;button class=&quot;dot active&quot; type=&quot;button&quot; title=&quot;第 2 句&quot; data-page-node-id=&quot;MFIkqIb60r5OrtkPTnYKgY&quot;&gt;&lt;/button&gt;&lt;button class=&quot;dot&quot; type=&quot;button&quot; title=&quot;第 3 句&quot; data-page-node-id=&quot;Wq9n6s1nZRVbrUImVExfBx&quot;&gt;&lt;/button&gt;&lt;button class=&quot;dot&quot; type=&quot;button&quot; title=&quot;第 4 句&quot; data-page-node-id=&quot;Rzt0RefIpTZlGsfGfa8ZQC&quot;&gt;&lt;/button&gt;&lt;button class=&quot;dot&quot; type=&quot;button&quot; title=&quot;第 5 句&quot; data-page-node-id=&quot;deGinOg3DvYawO1b9f8B11&quot;&gt;&lt;/button&gt;&lt;span class=&quot;count&quot; data-page-node-id=&quot;yZs5JW5Y5VMfGIymGEHbT2&quot;&gt;2 / 5&lt;/span&gt;&lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;p class=&quot;key-hint&quot; data-page-node-id=&quot;OGpIz7OiTu1qnEJIvN2Jo7&quot;&gt;
+                    快捷键：&lt;kbd data-page-node-id=&quot;BXpE4EImBTR1nkPLXEp6WI&quot;&gt;←&lt;/kbd&gt;&lt;kbd data-page-node-id=&quot;mSWfJqf89TMC2obDdh7lF6&quot;&gt;→&lt;/kbd&gt; 翻页 · &lt;kbd data-page-node-id=&quot;Z1lU15XskQBvPjXw7xfqzN&quot;&gt;空格&lt;/kbd&gt; 下一句 · &lt;kbd data-page-node-id=&quot;QxlALcwg9xcK82hPLcvKOU&quot;&gt;R&lt;/kbd&gt; 重播
+                &lt;/p&gt;
+
+                &lt;p class=&quot;voice-tip hide&quot; id=&quot;voiceTip&quot; data-page-node-id=&quot;lXO1L6d2QbCUXsTGkXJZnC&quot;&gt;🔊 若暂时没有声音，点击页面任意处即可开启语音朗读&lt;/p&gt;
+            &lt;/section&gt;
+
+        &lt;/main&gt;
+    &lt;/div&gt;
+
+    &lt;script src=&quot;js/bg.js&quot; data-page-node-id=&quot;FBFaVCgPAg4NjMJLwWw2AU&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/characters.js&quot; data-page-node-id=&quot;Usw6GDZy1BmPsIHvNtAJ7p&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/story.js&quot; data-page-node-id=&quot;8xPTFOJTaeBrcHsMGU1BQ4&quot;&gt;&lt;/script&gt;
+
+
+
+&lt;/body&gt;&lt;/html&gt;</code></pre>
+</section>
+  </main>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var code = document.getElementById('c-' + btn.dataset.t);
+    if (!code) return;
+    var text = code.textContent;
+
+    var done = function () {
+      btn.textContent = '已复制';
+      btn.classList.add('done');
+      setTimeout(function () {
+        btn.textContent = '复制代码';
+        btn.classList.remove('done');
+      }, 1600);
+    };
+
+    var fallback = function () {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); }
+      catch (e) { alert('复制失败，请手动选择代码'); }
+      document.body.removeChild(ta);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  });
+});
+</script>
+</body>
+</html>
